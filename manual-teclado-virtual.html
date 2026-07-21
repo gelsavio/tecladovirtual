@@ -1,454 +1,942 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<meta name="theme-color" content="#111326">
-<title>Manual do Teclado Virtual</title>
-<style>
-:root{
-  --bg:#0f1222;
-  --panel:#171b31;
-  --panel-2:#202640;
-  --border:#39415f;
-  --text:#f4f7fb;
-  --muted:#a9b2c9;
-  --accent:#6d63ff;
-  --accent-2:#918aff;
-  --success:#16a34a;
-  --danger:#dc2626;
-  --warning:#d97706;
-  --code:#0a0d19;
-  --shadow:0 12px 32px rgba(0,0,0,.26);
-}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
-  margin:0;
-  color:var(--text);
-  background:radial-gradient(circle at top,#252b50 0,var(--bg) 38%);
-  font-family:"Segoe UI",Arial,sans-serif;
-  line-height:1.65;
-}
-a{color:#c4c0ff;text-decoration:none}
-a:hover{text-decoration:underline}
-button{font:inherit}
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:20;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:12px 18px;
-  border-bottom:1px solid rgba(255,255,255,.08);
-  background:rgba(15,18,34,.92);
-  backdrop-filter:blur(14px);
-}
-.brand{font-weight:900;letter-spacing:.04em}
-.actions{display:flex;gap:8px}
-.actions button{
-  min-height:40px;
-  padding:8px 12px;
-  border:1px solid #555e82;
-  border-radius:9px;
-  color:#fff;
-  background:#2f3656;
-  cursor:pointer;
-  font-weight:800;
-}
-.layout{
-  width:min(1380px,100%);
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:280px minmax(0,1fr);
-  gap:24px;
-  padding:24px;
-}
-.sidebar{
-  position:sticky;
-  top:82px;
-  align-self:start;
-  max-height:calc(100vh - 105px);
-  overflow:auto;
-  padding:18px;
-  border:1px solid var(--border);
-  border-radius:16px;
-  background:rgba(23,27,49,.96);
-  box-shadow:var(--shadow);
-}
-.sidebar h2{margin:0 0 12px;font-size:.86rem;color:#dce2f3;text-transform:uppercase;letter-spacing:.08em}
-.sidebar nav{display:grid;gap:5px}
-.sidebar a{padding:8px 10px;border-radius:8px;color:var(--muted);font-size:.9rem;font-weight:650}
-.sidebar a:hover{background:#262d4b;color:#fff;text-decoration:none}
-main{min-width:0}
-.hero{
-  padding:30px;
-  border:1px solid var(--border);
-  border-radius:20px;
-  background:linear-gradient(135deg,rgba(109,99,255,.2),rgba(23,27,49,.95) 46%);
-  box-shadow:var(--shadow);
-}
-.hero h1{margin:0 0 10px;font-size:clamp(1.8rem,4vw,3rem);line-height:1.15}
-.hero p{margin:0;max-width:850px;color:#c6cee0;font-size:1.02rem}
-.badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-.badge{padding:6px 10px;border:1px solid #5f6790;border-radius:999px;background:#242a48;color:#dfe4f4;font-size:.78rem;font-weight:800}
-section.card{
-  margin-top:20px;
-  padding:24px;
-  border:1px solid var(--border);
-  border-radius:18px;
-  background:rgba(23,27,49,.96);
-  box-shadow:var(--shadow);
-  scroll-margin-top:88px;
-}
-h2{margin:0 0 12px;font-size:1.4rem}
-h3{margin:24px 0 8px;color:#dfe4f6;font-size:1.04rem}
-p{margin:8px 0 14px;color:#c5ccdc}
-ul,ol{margin:8px 0 14px;padding-left:22px;color:#c5ccdc}
-li{margin:6px 0}
-.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
-.info{
-  padding:16px;
-  border:1px solid #3f4869;
-  border-radius:13px;
-  background:var(--panel-2);
-}
-.info strong{display:block;margin-bottom:5px;color:#fff}
-.note,.warning,.success{
-  margin:14px 0;
-  padding:14px 16px;
-  border-left:5px solid;
-  border-radius:10px;
-  background:#202640;
-}
-.note{border-color:var(--accent-2)}
-.warning{border-color:var(--warning)}
-.success{border-color:var(--success)}
-.table-wrap{overflow-x:auto;border:1px solid var(--border);border-radius:12px}
-table{width:100%;border-collapse:collapse;min-width:650px;background:#14182c}
-th,td{padding:11px 12px;border-bottom:1px solid #303856;text-align:left;vertical-align:top}
-th{background:#222844;color:#fff;font-size:.82rem;text-transform:uppercase;letter-spacing:.04em}
-td{color:#c9d0df}
-tr:last-child td{border-bottom:none}
-kbd{
-  display:inline-block;
-  min-width:27px;
-  padding:2px 7px;
-  border:1px solid #667091;
-  border-bottom-width:3px;
-  border-radius:6px;
-  background:#222844;
-  color:#fff;
-  font:700 .82rem Consolas,monospace;
-  text-align:center;
-}
-.memory-demo{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
-.memory{
-  min-width:44px;
-  padding:9px 12px;
-  border-radius:9px;
-  color:#fff;
-  font-weight:900;
-  text-align:center;
-}
-.memory.green{background:var(--success)}
-.memory.red{background:var(--danger)}
-.memory.yellow{background:var(--warning)}
-.chord-line{display:grid;grid-template-columns:repeat(12,minmax(38px,1fr));gap:5px;margin:10px 0}
-.chord{
-  padding:8px 2px;
-  border:1px solid #696f98;
-  border-radius:7px;
-  background:#34395b;
-  color:#fff;
-  text-align:center;
-  font-size:.76rem;
-  font-weight:900;
-}
-.chord.minor{background:#5a385f}
-footer{padding:24px;text-align:center;color:#8792aa;font-size:.82rem}
-@media(max-width:980px){
-  .layout{grid-template-columns:1fr;padding:14px}
-  .sidebar{position:static;max-height:none}
-  .sidebar nav{grid-template-columns:repeat(2,minmax(0,1fr))}
-  .grid{grid-template-columns:1fr}
-  .hero,section.card{padding:18px}
-  .chord-line{grid-template-columns:repeat(6,1fr)}
-}
-@media(max-width:560px){
-  .topbar{padding:10px}.brand{font-size:.86rem}.actions button{padding:7px 9px;font-size:.75rem}
-  .sidebar nav{grid-template-columns:1fr}
-  .chord-line{grid-template-columns:repeat(4,1fr)}
-}
-@media print{
-  :root{--text:#111;--muted:#333}
-  body{background:#fff;color:#111}
-  .topbar,.sidebar{display:none!important}
-  .layout{display:block;width:100%;padding:0}
-  .hero,section.card{box-shadow:none;background:#fff;color:#111;border:1px solid #bbb;break-inside:avoid}
-  p,li,td{color:#222}
-  h1,h2,h3,strong,th{color:#000}
-  a{color:#000}
-  .badge,.info,.note,.warning,.success{background:#fff;color:#111}
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#111326">
+    <title>Manual do Teclado Virtual</title>
+    <style>
+         :root {
+            --bg: #0f1222;
+            --panel: #171b31;
+            --panel-2: #202640;
+            --border: #39415f;
+            --text: #f4f7fb;
+            --muted: #a9b2c9;
+            --accent: #6d63ff;
+            --accent-2: #918aff;
+            --success: #16a34a;
+            --danger: #dc2626;
+            --warning: #d97706;
+            --code: #0a0d19;
+            --shadow: 0 12px 32px rgba(0, 0, 0, .26);
+        }
+        
+        * {
+            box-sizing: border-box
+        }
+        
+        html {
+            scroll-behavior: smooth
+        }
+        
+        body {
+            margin: 0;
+            color: var(--text);
+            background: radial-gradient(circle at top, #252b50 0, var(--bg) 38%);
+            font-family: "Segoe UI", Arial, sans-serif;
+            line-height: 1.65;
+        }
+        
+        a {
+            color: #c4c0ff;
+            text-decoration: none
+        }
+        
+        a:hover {
+            text-decoration: underline
+        }
+        
+        button {
+            font: inherit
+        }
+        
+        .topbar {
+            position: sticky;
+            top: 0;
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            padding: 12px 18px;
+            border-bottom: 1px solid rgba(255, 255, 255, .08);
+            background: rgba(15, 18, 34, .92);
+            backdrop-filter: blur(14px);
+        }
+        
+        .brand {
+            font-weight: 900;
+            letter-spacing: .04em
+        }
+        
+        .actions {
+            display: flex;
+            gap: 8px
+        }
+        
+        .actions button {
+            min-height: 40px;
+            padding: 8px 12px;
+            border: 1px solid #555e82;
+            border-radius: 9px;
+            color: #fff;
+            background: #2f3656;
+            cursor: pointer;
+            font-weight: 800;
+        }
+        
+        .layout {
+            width: min(1380px, 100%);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 280px minmax(0, 1fr);
+            gap: 24px;
+            padding: 24px;
+        }
+        
+        .sidebar {
+            position: sticky;
+            top: 82px;
+            align-self: start;
+            max-height: calc(100vh - 105px);
+            overflow: auto;
+            padding: 18px;
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            background: rgba(23, 27, 49, .96);
+            box-shadow: var(--shadow);
+        }
+        
+        .sidebar h2 {
+            margin: 0 0 12px;
+            font-size: .86rem;
+            color: #dce2f3;
+            text-transform: uppercase;
+            letter-spacing: .08em
+        }
+        
+        .sidebar nav {
+            display: grid;
+            gap: 5px
+        }
+        
+        .sidebar a {
+            padding: 8px 10px;
+            border-radius: 8px;
+            color: var(--muted);
+            font-size: .9rem;
+            font-weight: 650
+        }
+        
+        .sidebar a:hover {
+            background: #262d4b;
+            color: #fff;
+            text-decoration: none
+        }
+        
+        main {
+            min-width: 0
+        }
+        
+        .hero {
+            padding: 30px;
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            background: linear-gradient(135deg, rgba(109, 99, 255, .2), rgba(23, 27, 49, .95) 46%);
+            box-shadow: var(--shadow);
+        }
+        
+        .hero h1 {
+            margin: 0 0 10px;
+            font-size: clamp(1.8rem, 4vw, 3rem);
+            line-height: 1.15
+        }
+        
+        .hero p {
+            margin: 0;
+            max-width: 850px;
+            color: #c6cee0;
+            font-size: 1.02rem
+        }
+        
+        .badges {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 18px
+        }
+        
+        .badge {
+            padding: 6px 10px;
+            border: 1px solid #5f6790;
+            border-radius: 999px;
+            background: #242a48;
+            color: #dfe4f4;
+            font-size: .78rem;
+            font-weight: 800
+        }
+        
+        section.card {
+            margin-top: 20px;
+            padding: 24px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: rgba(23, 27, 49, .96);
+            box-shadow: var(--shadow);
+            scroll-margin-top: 88px;
+        }
+        
+        h2 {
+            margin: 0 0 12px;
+            font-size: 1.4rem
+        }
+        
+        h3 {
+            margin: 24px 0 8px;
+            color: #dfe4f6;
+            font-size: 1.04rem
+        }
+        
+        p {
+            margin: 8px 0 14px;
+            color: #c5ccdc
+        }
+        
+        ul,
+        ol {
+            margin: 8px 0 14px;
+            padding-left: 22px;
+            color: #c5ccdc
+        }
+        
+        li {
+            margin: 6px 0
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 14px
+        }
+        
+        .info {
+            padding: 16px;
+            border: 1px solid #3f4869;
+            border-radius: 13px;
+            background: var(--panel-2);
+        }
+        
+        .info strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #fff
+        }
+        
+        .note,
+        .warning,
+        .success {
+            margin: 14px 0;
+            padding: 14px 16px;
+            border-left: 5px solid;
+            border-radius: 10px;
+            background: #202640;
+        }
+        
+        .note {
+            border-color: var(--accent-2)
+        }
+        
+        .warning {
+            border-color: var(--warning)
+        }
+        
+        .success {
+            border-color: var(--success)
+        }
+        
+        .table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--border);
+            border-radius: 12px
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            min-width: 650px;
+            background: #14182c
+        }
+        
+        th,
+        td {
+            padding: 11px 12px;
+            border-bottom: 1px solid #303856;
+            text-align: left;
+            vertical-align: top
+        }
+        
+        th {
+            background: #222844;
+            color: #fff;
+            font-size: .82rem;
+            text-transform: uppercase;
+            letter-spacing: .04em
+        }
+        
+        td {
+            color: #c9d0df
+        }
+        
+        tr:last-child td {
+            border-bottom: none
+        }
+        
+        kbd {
+            display: inline-block;
+            min-width: 27px;
+            padding: 2px 7px;
+            border: 1px solid #667091;
+            border-bottom-width: 3px;
+            border-radius: 6px;
+            background: #222844;
+            color: #fff;
+            font: 700 .82rem Consolas, monospace;
+            text-align: center;
+        }
+        
+        .memory-demo {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 12px 0
+        }
+        
+        .memory {
+            min-width: 44px;
+            padding: 9px 12px;
+            border-radius: 9px;
+            color: #fff;
+            font-weight: 900;
+            text-align: center;
+        }
+        
+        .memory.green {
+            background: var(--success)
+        }
+        
+        .memory.red {
+            background: var(--danger)
+        }
+        
+        .memory.yellow {
+            background: var(--warning)
+        }
+        
+        .chord-line {
+            display: grid;
+            grid-template-columns: repeat(12, minmax(38px, 1fr));
+            gap: 5px;
+            margin: 10px 0
+        }
+        
+        .chord {
+            padding: 8px 2px;
+            border: 1px solid #696f98;
+            border-radius: 7px;
+            background: #34395b;
+            color: #fff;
+            text-align: center;
+            font-size: .76rem;
+            font-weight: 900;
+        }
+        
+        .chord.minor {
+            background: #5a385f
+        }
+        
+        footer {
+            padding: 24px;
+            text-align: center;
+            color: #8792aa;
+            font-size: .82rem
+        }
+        
+        @media(max-width:980px) {
+            .layout {
+                grid-template-columns: 1fr;
+                padding: 14px
+            }
+            .sidebar {
+                position: static;
+                max-height: none
+            }
+            .sidebar nav {
+                grid-template-columns: repeat(2, minmax(0, 1fr))
+            }
+            .grid {
+                grid-template-columns: 1fr
+            }
+            .hero,
+            section.card {
+                padding: 18px
+            }
+            .chord-line {
+                grid-template-columns: repeat(6, 1fr)
+            }
+        }
+        
+        @media(max-width:560px) {
+            .topbar {
+                padding: 10px
+            }
+            .brand {
+                font-size: .86rem
+            }
+            .actions button {
+                padding: 7px 9px;
+                font-size: .75rem
+            }
+            .sidebar nav {
+                grid-template-columns: 1fr
+            }
+            .chord-line {
+                grid-template-columns: repeat(4, 1fr)
+            }
+        }
+        
+        @media print {
+             :root {
+                --text: #111;
+                --muted: #333
+            }
+            body {
+                background: #fff;
+                color: #111
+            }
+            .topbar,
+            .sidebar {
+                display: none!important
+            }
+            .layout {
+                display: block;
+                width: 100%;
+                padding: 0
+            }
+            .hero,
+            section.card {
+                box-shadow: none;
+                background: #fff;
+                color: #111;
+                border: 1px solid #bbb;
+                break-inside: avoid
+            }
+            p,
+            li,
+            td {
+                color: #222
+            }
+            h1,
+            h2,
+            h3,
+            strong,
+            th {
+                color: #000
+            }
+            a {
+                color: #000
+            }
+            .badge,
+            .info,
+            .note,
+            .warning,
+            .success {
+                background: #fff;
+                color: #111
+            }
+        }
+    </style>
 </head>
+
 <body>
-<header class="topbar">
-  <div class="brand">🎹 MANUAL DO TECLADO VIRTUAL</div>
-  <div class="actions">
-    <button type="button" onclick="window.print()">🖨 Imprimir</button>
-    <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Início</button>
-  </div>
-</header>
-<div class="layout">
-  <aside class="sidebar">
-    <h2>Conteúdo</h2>
-    <nav>
-      <a href="#apresentacao">1. Apresentação</a>
-      <a href="#inicio">2. Primeiros passos</a>
-      <a href="#interface">3. Interface principal</a>
-      <a href="#teclado">4. Teclado musical</a>
-      <a href="#instrumentos">5. Instrumentos</a>
-      <a href="#sustain">6. Sustain e liberação</a>
-      <a href="#acordes">7. Acordes</a>
-      <a href="#arpejo">8. Arpejo</a>
-      <a href="#acompanhamento">9. Acompanhamento</a>
-      <a href="#avancado">10. Controles avançados</a>
-      <a href="#memorias">11. Memórias de ajustes</a>
-      <a href="#tablet">12. Uso em tablet</a>
-      <a href="#computador">13. Teclado físico</a>
-      <a href="#problemas">14. Solução de problemas</a>
-      <a href="#resumo">15. Consulta rápida</a>
-    </nav>
-  </aside>
+    <header class="topbar">
+        <div class="brand">🎹 MANUAL DO TECLADO VIRTUAL</div>
+        <div class="actions">
+            <button type="button" onclick="window.location.href='index.html'">🎹 Voltar ao teclado</button>
+            <button type="button" onclick="window.print()">🖨 Imprimir</button>
+            <button type="button" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Início</button>
+        </div>
+    </header>
+    <div class="layout">
+        <aside class="sidebar">
+            <h2>Conteúdo</h2>
+            <nav>
+                <a href="#apresentacao">1. Apresentação</a>
+                <a href="#inicio">2. Primeiros passos</a>
+                <a href="#interface">3. Interface principal</a>
+                <a href="#teclado">4. Teclado musical</a>
+                <a href="#instrumentos">5. Instrumentos</a>
+                <a href="#sustain">6. Sustain e liberação</a>
+                <a href="#acordes">7. Acordes</a>
+                <a href="#circulo">8. Círculo harmônico — CH</a>
+                <a href="#arpejo">9. Arpejo</a>
+                <a href="#acompanhamento">10. Acompanhamento</a>
+                <a href="#avancado">11. Controles avançados</a>
+                <a href="#memorias">12. Memórias e presets</a>
+                <a href="#tablet">13. Uso em tablet</a>
+                <a href="#computador">14. Teclado físico</a>
+                <a href="#problemas">15. Solução de problemas</a>
+                <a href="#resumo">16. Consulta rápida</a>
+            </nav>
+        </aside>
 
-  <main>
-    <section class="hero" id="apresentacao">
-      <h1>TECLADO VIRTUAL</h1>
-      <p>Manual de utilização do aplicativo musical desenvolvido para computador e tablet, com teclado sensível ao toque, instrumentos variados, acordes maiores e menores, arpejo, acompanhamento contínuo, baixo, metrônomo e seis memórias de ajustes.</p>
-      <div class="badges">
-        <span class="badge">Uso horizontal</span>
-        <span class="badge">Compatível com toque</span>
-        <span class="badge">Sem necessidade de internet</span>
-        <span class="badge">Ajustes salvos no navegador</span>
-      </div>
-    </section>
+        <main>
+            <section class="hero" id="apresentacao">
+                <h1>TECLADO VIRTUAL</h1>
+                <p>Manual de utilização do aplicativo musical desenvolvido para computador e tablet, com teclado sensível ao toque, instrumentos variados, acordes maiores e menores, círculo harmônico, arpejo, acompanhamento contínuo, baixo, metrônomo e seis
+                    memórias de estilos musicais.</p>
+                <div class="badges">
+                    <span class="badge">Uso horizontal</span>
+                    <span class="badge">Compatível com toque</span>
+                    <span class="badge">Sem necessidade de internet</span>
+                    <span class="badge">Ajustes salvos no navegador</span>
+                </div>
+            </section>
 
-    <section class="card" id="inicio">
-      <h2>2. Primeiros passos</h2>
-      <ol>
-        <li>Abra o arquivo do aplicativo em um navegador moderno, como GOOGLE CHROME, MICROSOFT EDGE ou SAFARI.</li>
-        <li>Em tablet ou celular, coloque o dispositivo na posição horizontal.</li>
-        <li>Toque em qualquer tecla musical para liberar o áudio do navegador.</li>
-        <li>Escolha o instrumento, a oitava, o sustain e o volume.</li>
-        <li>Utilize as teclas coloridas para melodias e os botões de acordes para acompanhamento.</li>
-      </ol>
-      <div class="note"><strong>Primeiro som</strong><br>Alguns navegadores bloqueiam áudio automático. Por isso, o som somente é iniciado após o primeiro toque do usuário na tela.</div>
-    </section>
+            <section class="card" id="inicio">
+                <h2>2. Primeiros passos</h2>
+                <ol>
+                    <li>Abra o arquivo do aplicativo em um navegador moderno, como GOOGLE CHROME, MICROSOFT EDGE ou SAFARI.</li>
+                    <li>Em tablet ou celular, coloque o dispositivo na posição horizontal.</li>
+                    <li>Toque em qualquer tecla musical para liberar o áudio do navegador.</li>
+                    <li>Escolha o instrumento, a oitava, o sustain e o volume.</li>
+                    <li>Utilize as teclas coloridas para melodias e os botões de acordes para acompanhamento.</li>
+                </ol>
+                <div class="note"><strong>Primeiro som</strong><br>Alguns navegadores bloqueiam áudio automático. Por isso, o som somente é iniciado após o primeiro toque do usuário na tela.</div>
+            </section>
 
-    <section class="card" id="interface">
-      <h2>3. Interface principal</h2>
-      <div class="grid">
-        <div class="info"><strong>Instrumento</strong>Seleciona o timbre utilizado pelo teclado principal.</div>
-        <div class="info"><strong>Oitava</strong>Desloca todas as notas para regiões mais graves ou mais agudas.</div>
-        <div class="info"><strong>Sustain</strong>Define como a nota permanece soando depois do toque.</div>
-        <div class="info"><strong>Liberação</strong>Controla o tempo que o som leva para desaparecer.</div>
-        <div class="info"><strong>Volume geral</strong>Altera o volume de todo o aplicativo.</div>
-        <div class="info"><strong>Avançado</strong>Abre os controles adicionais de áudio, arpejo, metrônomo e tablet.</div>
-        <div class="info"><strong>Tela cheia</strong>Expande o aplicativo para ocupar toda a tela disponível.</div>
-        <div class="info"><strong>Silenciar</strong>Interrompe imediatamente todas as notas e acompanhamentos.</div>
-      </div>
-    </section>
+            <section class="card" id="interface">
+                <h2>3. Interface principal</h2>
+                <div class="grid">
+                    <div class="info"><strong>Instrumento</strong>Seleciona o timbre utilizado pelo teclado principal.</div>
+                    <div class="info"><strong>Oitava</strong>Desloca todas as notas para regiões mais graves ou mais agudas.</div>
+                    <div class="info"><strong>Sustain</strong>Define como a nota permanece soando depois do toque.</div>
+                    <div class="info"><strong>Liberação</strong>Controla o tempo que o som leva para desaparecer.</div>
+                    <div class="info"><strong>Volume geral</strong>Altera o volume de todo o aplicativo.</div>
+                    <div class="info"><strong>Avançado</strong>Abre os controles adicionais de áudio, arpejo, metrônomo e tablet.</div>
+                    <div class="info"><strong>Tela cheia</strong>Expande o aplicativo para ocupar toda a tela disponível.</div>
+                    <div class="info"><strong>Silenciar</strong>Interrompe imediatamente todas as notas e acompanhamentos.</div>
+                    <div class="info"><strong>CH</strong>Filtra os acordes conforme o campo harmônico maior da tonalidade escolhida.</div>
+                    <div class="info"><strong>Manual</strong>Abre este manual a partir do arquivo manual-teclado-virtual.html.</div>
+                </div>
+            </section>
 
-    <section class="card" id="teclado">
-      <h2>4. Teclado musical</h2>
-      <p>O teclado principal possui notas naturais coloridas e notas sustenidas posicionadas na fileira superior. No tablet, basta tocar e manter o dedo sobre uma tecla. No computador, também é possível utilizar o teclado físico.</p>
-      <h3>Intensidade do toque</h3>
-      <p>Quando o modo <strong>Sensível</strong> está ativo, a posição vertical do toque altera a intensidade. Toques próximos à parte superior da tecla produzem menor volume; toques próximos à parte inferior produzem maior volume.</p>
-      <h3>Glissando</h3>
-      <p>Com o botão <strong>Glissando</strong> ativo, mantenha o dedo pressionado e deslize sobre as teclas. Cada tecla atravessada será acionada.</p>
-      <div class="warning"><strong>Evite gestos involuntários</strong><br>Durante o glissando, mantenha o dedo dentro da área do teclado. Movimentos muito próximos às bordas do navegador podem acionar gestos do sistema operacional.</div>
-    </section>
+            <section class="card" id="teclado">
+                <h2>4. Teclado musical</h2>
+                <p>O teclado principal possui notas naturais coloridas e notas sustenidas posicionadas na fileira superior. No tablet, basta tocar e manter o dedo sobre uma tecla. No computador, também é possível utilizar o teclado físico.</p>
+                <h3>Intensidade do toque</h3>
+                <p>Quando o modo <strong>Sensível</strong> está ativo, a posição vertical do toque altera a intensidade. Toques próximos à parte superior da tecla produzem menor volume; toques próximos à parte inferior produzem maior volume.</p>
+                <h3>Glissando</h3>
+                <p>Com o botão <strong>Glissando</strong> ativo, mantenha o dedo pressionado e deslize sobre as teclas. Cada tecla atravessada será acionada.</p>
+                <div class="warning"><strong>Evite gestos involuntários</strong><br>Durante o glissando, mantenha o dedo dentro da área do teclado. Movimentos muito próximos às bordas do navegador podem acionar gestos do sistema operacional.</div>
+            </section>
 
-    <section class="card" id="instrumentos">
-      <h2>5. Instrumentos disponíveis</h2>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Instrumento</th><th>Características</th><th>Uso sugerido</th></tr></thead>
-        <tbody>
-          <tr><td>Piano</td><td>Ataque definido e redução gradual do som.</td><td>Melodias, estudos e acordes.</td></tr>
-          <tr><td>Xilofone</td><td>Som curto, brilhante e percussivo.</td><td>Jogos musicais e melodias rápidas.</td></tr>
-          <tr><td>Flauta</td><td>Som suave e contínuo.</td><td>Melodias sustentadas.</td></tr>
-          <tr><td>Órgão de igreja</td><td>Som cheio, estável e com harmônicos.</td><td>Acompanhamento e acordes contínuos.</td></tr>
-          <tr><td>Acordeom</td><td>Timbre encorpado e expressivo.</td><td>Melodia e acompanhamento popular.</td></tr>
-          <tr><td>Violino</td><td>Ataque progressivo e sustentação prolongada.</td><td>Frases melódicas e legato.</td></tr>
-          <tr><td>Pad sintetizado</td><td>Som atmosférico de entrada e saída suaves.</td><td>Base harmônica e ambientação.</td></tr>
-        </tbody>
-      </table></div>
-    </section>
+            <section class="card" id="instrumentos">
+                <h2>5. Instrumentos disponíveis</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Instrumento</th>
+                                <th>Características</th>
+                                <th>Uso sugerido</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Piano</td>
+                                <td>Ataque definido e redução gradual do som.</td>
+                                <td>Melodias, estudos e acordes.</td>
+                            </tr>
+                            <tr>
+                                <td>Xilofone</td>
+                                <td>Som curto, brilhante e percussivo.</td>
+                                <td>Jogos musicais e melodias rápidas.</td>
+                            </tr>
+                            <tr>
+                                <td>Flauta</td>
+                                <td>Som suave e contínuo.</td>
+                                <td>Melodias sustentadas.</td>
+                            </tr>
+                            <tr>
+                                <td>Órgão de igreja</td>
+                                <td>Som cheio, estável e com harmônicos.</td>
+                                <td>Acompanhamento e acordes contínuos.</td>
+                            </tr>
+                            <tr>
+                                <td>Acordeom</td>
+                                <td>Timbre encorpado e expressivo.</td>
+                                <td>Melodia e acompanhamento popular.</td>
+                            </tr>
+                            <tr>
+                                <td>Violino</td>
+                                <td>Ataque progressivo e sustentação prolongada.</td>
+                                <td>Frases melódicas e legato.</td>
+                            </tr>
+                            <tr>
+                                <td>Pad sintetizado</td>
+                                <td>Som atmosférico de entrada e saída suaves.</td>
+                                <td>Base harmônica e ambientação.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-    <section class="card" id="sustain">
-      <h2>6. Sustain, ataque e liberação</h2>
-      <h3>Ao segurar</h3>
-      <p>A nota permanece ativa enquanto a tecla estiver pressionada. Ao retirar o dedo ou soltar a tecla física, o som entra na fase de liberação.</p>
-      <h3>Até próxima</h3>
-      <p>A nota permanece tocando até que uma nova nota ou um novo acorde seja acionado. A nova execução encerra a anterior.</p>
-      <h3>Ataque</h3>
-      <p>Disponível no painel avançado. Valores baixos fazem o som começar rapidamente. Valores altos produzem entrada gradual, especialmente perceptível em flauta, violino, órgão e pad.</p>
-      <h3>Liberação</h3>
-      <p>Define quanto tempo o som demora para desaparecer. Valores curtos produzem notas secas. Valores longos deixam as notas mais prolongadas.</p>
-    </section>
+            <section class="card" id="sustain">
+                <h2>6. Sustain, ataque e liberação</h2>
+                <h3>Ao segurar</h3>
+                <p>A nota permanece ativa enquanto a tecla estiver pressionada. Ao retirar o dedo ou soltar a tecla física, o som entra na fase de liberação.</p>
+                <h3>Até próxima</h3>
+                <p>A nota permanece tocando até que uma nova nota ou um novo acorde seja acionado. A nova execução encerra a anterior.</p>
+                <h3>Ataque</h3>
+                <p>Disponível no painel avançado. Valores baixos fazem o som começar rapidamente. Valores altos produzem entrada gradual, especialmente perceptível em flauta, violino, órgão e pad.</p>
+                <h3>Liberação</h3>
+                <p>Define quanto tempo o som demora para desaparecer. Valores curtos produzem notas secas. Valores longos deixam as notas mais prolongadas.</p>
+            </section>
 
-    <section class="card" id="acordes">
-      <h2>7. Acordes maiores e menores</h2>
-      <p>A primeira fileira contém os acordes maiores e a segunda contém os acordes menores. A nomenclatura utiliza letras:</p>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Letra</th><th>Nota</th><th>Exemplo maior</th><th>Exemplo menor</th></tr></thead>
-        <tbody>
-          <tr><td>C</td><td>DÓ</td><td>C</td><td>Cm</td></tr>
-          <tr><td>D</td><td>RÉ</td><td>D</td><td>Dm</td></tr>
-          <tr><td>E</td><td>MI</td><td>E</td><td>Em</td></tr>
-          <tr><td>F</td><td>FÁ</td><td>F</td><td>Fm</td></tr>
-          <tr><td>G</td><td>SOL</td><td>G</td><td>Gm</td></tr>
-          <tr><td>A</td><td>LÁ</td><td>A</td><td>Am</td></tr>
-          <tr><td>B</td><td>SI</td><td>B</td><td>Bm</td></tr>
-        </tbody>
-      </table></div>
-      <h3>Fileira dos acordes maiores</h3>
-      <div class="chord-line"><span class="chord">C</span><span class="chord">C#</span><span class="chord">D</span><span class="chord">D#</span><span class="chord">E</span><span class="chord">F</span><span class="chord">F#</span><span class="chord">G</span><span class="chord">G#</span><span class="chord">A</span><span class="chord">A#</span><span class="chord">B</span></div>
-      <h3>Fileira dos acordes menores</h3>
-      <div class="chord-line"><span class="chord minor">Cm</span><span class="chord minor">C#m</span><span class="chord minor">Dm</span><span class="chord minor">D#m</span><span class="chord minor">Em</span><span class="chord minor">Fm</span><span class="chord minor">F#m</span><span class="chord minor">Gm</span><span class="chord minor">G#m</span><span class="chord minor">Am</span><span class="chord minor">A#m</span><span class="chord minor">Bm</span></div>
-      <h3>Inversões</h3>
-      <p><strong>Fundamental</strong> mantém a nota principal na região grave. A <strong>1ª inversão</strong> desloca a primeira nota do acorde para cima. A <strong>2ª inversão</strong> desloca as duas primeiras notas. As inversões ajudam a criar transições mais suaves entre acordes.</p>
-    </section>
+            <section class="card" id="acordes">
+                <h2>7. Acordes maiores e menores</h2>
+                <p>A primeira fileira contém os acordes maiores e a segunda contém os acordes menores. A nomenclatura utiliza letras:</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Letra</th>
+                                <th>Nota</th>
+                                <th>Exemplo maior</th>
+                                <th>Exemplo menor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>C</td>
+                                <td>DÓ</td>
+                                <td>C</td>
+                                <td>Cm</td>
+                            </tr>
+                            <tr>
+                                <td>D</td>
+                                <td>RÉ</td>
+                                <td>D</td>
+                                <td>Dm</td>
+                            </tr>
+                            <tr>
+                                <td>E</td>
+                                <td>MI</td>
+                                <td>E</td>
+                                <td>Em</td>
+                            </tr>
+                            <tr>
+                                <td>F</td>
+                                <td>FÁ</td>
+                                <td>F</td>
+                                <td>Fm</td>
+                            </tr>
+                            <tr>
+                                <td>G</td>
+                                <td>SOL</td>
+                                <td>G</td>
+                                <td>Gm</td>
+                            </tr>
+                            <tr>
+                                <td>A</td>
+                                <td>LÁ</td>
+                                <td>A</td>
+                                <td>Am</td>
+                            </tr>
+                            <tr>
+                                <td>B</td>
+                                <td>SI</td>
+                                <td>B</td>
+                                <td>Bm</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3>Fileira dos acordes maiores</h3>
+                <div class="chord-line"><span class="chord">C</span><span class="chord">C#</span><span class="chord">D</span><span class="chord">D#</span><span class="chord">E</span><span class="chord">F</span><span class="chord">F#</span><span class="chord">G</span><span class="chord">G#</span>
+                    <span class="chord">A</span><span class="chord">A#</span><span class="chord">B</span></div>
+                <h3>Fileira dos acordes menores</h3>
+                <div class="chord-line"><span class="chord minor">Cm</span><span class="chord minor">C#m</span><span class="chord minor">Dm</span><span class="chord minor">D#m</span><span class="chord minor">Em</span><span class="chord minor">Fm</span><span class="chord minor">F#m</span>
+                    <span class="chord minor">Gm</span><span class="chord minor">G#m</span><span class="chord minor">Am</span><span class="chord minor">A#m</span><span class="chord minor">Bm</span></div>
+                <h3>Inversões</h3>
+                <p><strong>Fundamental</strong> mantém a nota principal na região grave. A <strong>1ª inversão</strong> desloca a primeira nota do acorde para cima. A <strong>2ª inversão</strong> desloca as duas primeiras notas. As inversões ajudam a criar
+                    transições mais suaves entre acordes.</p>
+            </section>
 
-    <section class="card" id="arpejo">
-      <h2>8. Execução conjunta e arpejo</h2>
-      <h3>Juntos</h3>
-      <p>Todas as notas do acorde são acionadas ao mesmo tempo.</p>
-      <h3>Arpejo</h3>
-      <p>As notas do acorde são acionadas uma por vez. Para ativar, pressione o botão <strong>Arpejo</strong> na área <strong>Execução</strong>.</p>
-      <p>O painel avançado permite escolher o padrão:</p>
-      <ul>
-        <li><strong>Crescente:</strong> da nota mais grave para a mais aguda.</li>
-        <li><strong>Decrescente:</strong> da nota mais aguda para a mais grave.</li>
-        <li><strong>Crescente e decrescente:</strong> sobe e retorna.</li>
-        <li><strong>Alternado:</strong> alterna a direção a cada execução.</li>
-        <li><strong>Aleatório:</strong> modifica a ordem das notas.</li>
-      </ul>
-      <p>O controle <strong>Intervalo</strong> define o tempo entre as notas. Valores menores produzem arpejos rápidos; valores maiores deixam as notas mais separadas.</p>
-    </section>
+            <section class="card" id="circulo">
+                <h2>8. Círculo harmônico — CH</h2>
+                <p>O botão <strong>CH</strong>, localizado na barra inferior, restringe as duas fileiras de acordes aos acordes pertencentes ao campo harmônico maior de uma tonalidade.</p>
+                <h3>Como ativar</h3>
+                <ol>
+                    <li>Pressione <strong>CH</strong>.</li>
+                    <li>Escolha uma tonalidade entre C, C#, D, D#, E, F, F#, G, G#, A, A# e B.</li>
+                    <li>O teclado de acordes mostrará apenas os sete graus diatônicos daquela tonalidade.</li>
+                </ol>
+                <p>A formação apresentada segue o padrão do campo harmônico maior: <strong>I, IV e V maiores; II, III e VI menores; VII diminuto</strong>. O sétimo grau aparece com o símbolo <strong>°</strong>.</p>
+                <div class="success"><strong>Exemplo em C</strong><br>C, Dm, Em, F, G, Am e B°.</div>
+                <h3>Como desligar</h3>
+                <p>Pressione novamente o botão <strong>CH</strong>. Todas as opções maiores e menores voltarão a aparecer.</p>
+                <div class="note"><strong>Observação</strong><br>Enquanto o filtro estiver ativo, o botão exibirá a tonalidade escolhida, por exemplo, CH C ou CH G.</div>
+            </section>
 
-    <section class="card" id="acompanhamento">
-      <h2>9. Acompanhamento contínuo, baixo e ritmo</h2>
-      <h3>Contínuo</h3>
-      <p>Quando ativado, o acorde selecionado permanece em execução até que o mesmo botão seja pressionado novamente, outro acorde seja escolhido ou o botão <strong>Silenciar</strong> seja utilizado.</p>
-      <h3>Baixo</h3>
-      <p>Adiciona a nota fundamental grave durante a execução arpejada. Esse recurso cria uma base harmônica mais estável.</p>
-      <h3>Ritmo do acompanhamento</h3>
-      <p>No painel avançado, podem ser selecionados os seguintes padrões: nota inteira, duas batidas, quatro batidas, valsa e dedilhado. O andamento é definido pelo controle de BPM do metrônomo.</p>
-      <div class="success"><strong>Combinação sugerida</strong><br>Para acompanhamento automático, ative <strong>Contínuo</strong>, escolha um ritmo, ajuste o BPM e toque no acorde desejado. Para um efeito mais encorpado, ative também o <strong>Baixo</strong>.</div>
-    </section>
+            <section class="card" id="arpejo">
+                <h2>9. Execução conjunta e arpejo</h2>
+                <h3>Juntos</h3>
+                <p>Todas as notas do acorde são acionadas ao mesmo tempo.</p>
+                <h3>Arpejo</h3>
+                <p>As notas do acorde são acionadas uma por vez. Para ativar, pressione o botão <strong>Arpejo</strong> na área <strong>Execução</strong>.</p>
+                <p>O painel avançado permite escolher o padrão:</p>
+                <ul>
+                    <li><strong>Crescente:</strong> da nota mais grave para a mais aguda.</li>
+                    <li><strong>Decrescente:</strong> da nota mais aguda para a mais grave.</li>
+                    <li><strong>Crescente e decrescente:</strong> sobe e retorna.</li>
+                    <li><strong>Alternado:</strong> alterna a direção a cada execução.</li>
+                    <li><strong>Aleatório:</strong> modifica a ordem das notas.</li>
+                </ul>
+                <p>O controle <strong>Intervalo</strong> define o tempo entre as notas. Valores menores produzem arpejos rápidos; valores maiores deixam as notas mais separadas.</p>
+            </section>
 
-    <section class="card" id="avancado">
-      <h2>10. Controles avançados</h2>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Controle</th><th>Função</th></tr></thead>
-        <tbody>
-          <tr><td>Ataque</td><td>Define a velocidade de entrada do som.</td></tr>
-          <tr><td>Teclado</td><td>Volume exclusivo das notas tocadas no teclado principal.</td></tr>
-          <tr><td>Acordes</td><td>Volume exclusivo dos acordes.</td></tr>
-          <tr><td>Baixo</td><td>Volume exclusivo da base grave.</td></tr>
-          <tr><td>Divisão do teclado</td><td>Permite usar outro instrumento na região grave do teclado.</td></tr>
-          <tr><td>Padrão de arpejo</td><td>Define a ordem de execução das notas do acorde.</td></tr>
-          <tr><td>Intervalo</td><td>Define o tempo entre as notas do arpejo.</td></tr>
-          <tr><td>Metrônomo</td><td>Produz pulsos regulares no BPM escolhido.</td></tr>
-          <tr><td>Ritmo do acompanhamento</td><td>Define o padrão usado no modo contínuo.</td></tr>
-          <tr><td>Sensível</td><td>Permite variar a intensidade de acordo com a posição do toque.</td></tr>
-          <tr><td>Glissando</td><td>Permite tocar várias notas deslizando o dedo.</td></tr>
-        </tbody>
-      </table></div>
-    </section>
+            <section class="card" id="acompanhamento">
+                <h2>10. Acompanhamento contínuo, baixo e ritmo</h2>
+                <h3>Contínuo</h3>
+                <p>Quando ativado, o acorde selecionado permanece em execução até que o mesmo botão seja pressionado novamente, outro acorde seja escolhido ou o botão <strong>Silenciar</strong> seja utilizado.</p>
+                <h3>Baixo</h3>
+                <p>Adiciona a nota fundamental grave durante a execução arpejada. Esse recurso cria uma base harmônica mais estável.</p>
+                <h3>Ritmo do acompanhamento</h3>
+                <p>No painel avançado, podem ser selecionados os seguintes padrões: nota inteira, duas batidas, quatro batidas, valsa e dedilhado. O andamento é definido pelo controle de BPM do metrônomo.</p>
+                <div class="success"><strong>Combinação sugerida</strong><br>Para acompanhamento automático, ative <strong>Contínuo</strong>, escolha um ritmo, ajuste o BPM e toque no acorde desejado. Para um efeito mais encorpado, ative também o <strong>Baixo</strong>.</div>
+            </section>
 
-    <section class="card" id="memorias">
-      <h2>11. Memórias de ajustes</h2>
-      <p>O aplicativo possui seis memórias numeradas para guardar combinações de instrumento, oitava, sustain, volumes, arpejo, inversão, baixo, acompanhamento, divisão do teclado, BPM e demais ajustes.</p>
-      <div class="memory-demo"><span class="memory green">1</span><span class="memory red">2</span><span class="memory green">3</span><span class="memory yellow">Salvar</span></div>
-      <p><strong>Verde:</strong> a memória ainda contém o padrão original.</p>
-      <p><strong>Vermelho:</strong> a memória possui uma configuração personalizada.</p>
-      <h3>Como salvar</h3>
-      <ol>
-        <li>Configure o aplicativo conforme desejado.</li>
-        <li>Pressione <strong>Salvar</strong>.</li>
-        <li>O botão passará a mostrar <strong>Escolha 1–6</strong>.</li>
-        <li>Pressione o número da memória em que os ajustes devem ser gravados.</li>
-        <li>O botão escolhido ficará vermelho.</li>
-      </ol>
-      <h3>Como recuperar</h3>
-      <p>Pressione diretamente um botão vermelho. Os ajustes armazenados serão aplicados imediatamente.</p>
-      <h3>Memória verde</h3>
-      <p>Ao pressionar uma memória verde, o aplicativo aplica os ajustes de fábrica.</p>
-      <div class="warning"><strong>Armazenamento local</strong><br>As memórias são guardadas no navegador do próprio dispositivo. Limpar os dados do navegador, utilizar modo anônimo ou abrir o arquivo em outro navegador pode fazer com que as configurações não apareçam.</div>
-    </section>
+            <section class="card" id="avancado">
+                <h2>11. Controles avançados</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Controle</th>
+                                <th>Função</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Ataque</td>
+                                <td>Define a velocidade de entrada do som.</td>
+                            </tr>
+                            <tr>
+                                <td>Teclado</td>
+                                <td>Volume exclusivo das notas tocadas no teclado principal.</td>
+                            </tr>
+                            <tr>
+                                <td>Acordes</td>
+                                <td>Volume exclusivo dos acordes.</td>
+                            </tr>
+                            <tr>
+                                <td>Baixo</td>
+                                <td>Volume exclusivo da base grave.</td>
+                            </tr>
+                            <tr>
+                                <td>Divisão do teclado</td>
+                                <td>Permite usar outro instrumento na região grave do teclado.</td>
+                            </tr>
+                            <tr>
+                                <td>Padrão de arpejo</td>
+                                <td>Define a ordem de execução das notas do acorde.</td>
+                            </tr>
+                            <tr>
+                                <td>Intervalo</td>
+                                <td>Define o tempo entre as notas do arpejo.</td>
+                            </tr>
+                            <tr>
+                                <td>Metrônomo</td>
+                                <td>Produz pulsos regulares no BPM escolhido.</td>
+                            </tr>
+                            <tr>
+                                <td>Ritmo do acompanhamento</td>
+                                <td>Define o padrão usado no modo contínuo.</td>
+                            </tr>
+                            <tr>
+                                <td>Sensível</td>
+                                <td>Permite variar a intensidade de acordo com a posição do toque.</td>
+                            </tr>
+                            <tr>
+                                <td>Glissando</td>
+                                <td>Permite tocar várias notas deslizando o dedo.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-    <section class="card" id="tablet">
-      <h2>12. Uso em tablet</h2>
-      <ul>
-        <li>Utilize o dispositivo na posição horizontal.</li>
-        <li>Ative <strong>Tela cheia</strong> para aumentar a área útil.</li>
-        <li>Mantenha o navegador atualizado.</li>
-        <li>Para acordes, toque uma única vez no botão desejado.</li>
-        <li>Para melodias, mantenha o dedo sobre a tecla ou deslize com o glissando.</li>
-        <li>Em apresentações, desative notificações do sistema para evitar interrupções.</li>
-        <li>Use fones ou caixa de som externa quando o alto-falante interno tiver pouco volume.</li>
-      </ul>
-      <div class="note"><strong>Orientação</strong><br>Em telas pequenas, o aplicativo exibe uma mensagem solicitando que o dispositivo seja girado para a posição horizontal.</div>
-    </section>
+            <section class="card" id="memorias">
+                <h2>12. Memórias de ajustes e presets</h2>
+                <p>As seis memórias nunca ficam vazias. Cada uma possui uma configuração musical fornecida pelo aplicativo e pode ser substituída por uma configuração personalizada.</p>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Memória</th>
+                                <th>Preset padrão</th>
+                                <th>Características principais</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Salmos na igreja</td>
+                                <td>Órgão de igreja, sustain prolongado e acompanhamento suave.</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Forró pé de serra</td>
+                                <td>Acordeom, andamento rápido, baixo ativo e notas curtas.</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Rock — estilo LEGIÃO URBANA</td>
+                                <td>Piano, acordes juntos, baixo e andamento moderadamente rápido.</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>MPB</td>
+                                <td>Piano, arpejo crescente e decrescente, primeira inversão e andamento moderado.</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>Bolero</td>
+                                <td>Acordeom, sustain prolongado, arpejo lento e acompanhamento contínuo.</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>Música sertaneja</td>
+                                <td>Acordeom, arpejo alternado, baixo e andamento moderado.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <h3>Carregar uma memória</h3>
+                <p>Pressione diretamente o botão numerado. O app aplica imediatamente o preset padrão ou os ajustes personalizados existentes naquela posição.</p>
+                <h3>Salvar ajustes personalizados</h3>
+                <ol>
+                    <li>Configure instrumento, sustain, volumes, arpejo, inversão, metrônomo, acompanhamento e demais controles.</li>
+                    <li>Pressione <strong>Salvar</strong>.</li>
+                    <li>Pressione o número de 1 a 6 em que os ajustes devem ser gravados.</li>
+                </ol>
+                <h3>Cores das memórias</h3>
+                <p><strong>Verde:</strong> a posição utiliza o preset fornecido pelo aplicativo. <strong>Vermelho:</strong> a posição contém ajustes personalizados salvos pelo usuário.</p>
+                <div class="warning"><strong>Armazenamento local</strong><br>Os ajustes personalizados são guardados no navegador. A limpeza dos dados do navegador, o uso de outro navegador ou a abertura em outro endereço pode fazer o app voltar aos presets padrão.</div>
+            </section>
 
-    <section class="card" id="computador">
-      <h2>13. Uso com teclado físico</h2>
-      <p>As letras exibidas nas teclas musicais funcionam como atalhos. Pressione uma tecla física para iniciar a nota e solte para encerrá-la no modo <strong>Ao segurar</strong>.</p>
-      <p>Entre os atalhos utilizados estão:</p>
-      <div class="memory-demo"><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><kbd>F</kbd><kbd>G</kbd><kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd><kbd>Ç</kbd><kbd>Z</kbd><kbd>X</kbd></div>
-      <p>As notas sustenidas utilizam teclas da fileira superior, conforme as indicações apresentadas no próprio aplicativo.</p>
-    </section>
+            <section class="card" id="tablet">
+                <h2>13. Uso em tablet</h2>
+                <ul>
+                    <li>Utilize o dispositivo na posição horizontal.</li>
+                    <li>Ative <strong>Tela cheia</strong> para aumentar a área útil.</li>
+                    <li>Mantenha o navegador atualizado.</li>
+                    <li>Para acordes, toque uma única vez no botão desejado.</li>
+                    <li>Para melodias, mantenha o dedo sobre a tecla ou deslize com o glissando.</li>
+                    <li>Em apresentações, desative notificações do sistema para evitar interrupções.</li>
+                    <li>Use fones ou caixa de som externa quando o alto-falante interno tiver pouco volume.</li>
+                </ul>
+                <div class="note"><strong>Orientação</strong><br>Em telas pequenas, o aplicativo exibe uma mensagem solicitando que o dispositivo seja girado para a posição horizontal.</div>
+            </section>
 
-    <section class="card" id="problemas">
-      <h2>14. Solução de problemas</h2>
-      <div class="table-wrap"><table>
-        <thead><tr><th>Problema</th><th>Procedimento recomendado</th></tr></thead>
-        <tbody>
-          <tr><td>O aplicativo não produz som.</td><td>Toque primeiro em uma tecla, verifique o volume do dispositivo e confirme que o navegador não está silenciado.</td></tr>
-          <tr><td>O som fica preso.</td><td>Pressione <strong>Silenciar</strong>. Se necessário, recarregue a página.</td></tr>
-          <tr><td>O arpejo toca junto.</td><td>Pressione <strong>Arpejo</strong> na área Execução.</td></tr>
-          <tr><td>O arpejo está muito rápido ou lento.</td><td>Abra <strong>Avançado</strong> e ajuste o controle Intervalo.</td></tr>
-          <tr><td>O acorde continua tocando.</td><td>Desative <strong>Contínuo</strong>, pressione novamente o acorde ativo ou use <strong>Silenciar</strong>.</td></tr>
-          <tr><td>As memórias desapareceram.</td><td>Confirme que o arquivo foi aberto no mesmo navegador e que os dados do site não foram apagados.</td></tr>
-          <tr><td>A tela está muito apertada.</td><td>Use o tablet na horizontal e ative Tela cheia.</td></tr>
-          <tr><td>O toque está variando demais o volume.</td><td>Abra Avançado e altere Sensível para Uniforme.</td></tr>
-          <tr><td>O dedo aciona várias notas sem intenção.</td><td>Desative Glissando no painel avançado.</td></tr>
-        </tbody>
-      </table></div>
-    </section>
+            <section class="card" id="computador">
+                <h2>13. Uso com teclado físico</h2>
+                <p>As letras exibidas nas teclas musicais funcionam como atalhos. Pressione uma tecla física para iniciar a nota e solte para encerrá-la no modo <strong>Ao segurar</strong>.</p>
+                <p>Entre os atalhos utilizados estão:</p>
+                <div class="memory-demo"><kbd>A</kbd><kbd>S</kbd><kbd>D</kbd><kbd>F</kbd><kbd>G</kbd><kbd>H</kbd><kbd>J</kbd><kbd>K</kbd><kbd>L</kbd><kbd>Ç</kbd><kbd>Z</kbd><kbd>X</kbd></div>
+                <p>As notas sustenidas utilizam teclas da fileira superior, conforme as indicações apresentadas no próprio aplicativo.</p>
+            </section>
 
-    <section class="card" id="resumo">
-      <h2>15. Consulta rápida</h2>
-      <div class="grid">
-        <div class="info"><strong>Tocar uma nota</strong>Pressione uma tecla colorida.</div>
-        <div class="info"><strong>Tocar um acorde completo</strong>Selecione Juntos e pressione um acorde.</div>
-        <div class="info"><strong>Tocar uma nota por vez no acorde</strong>Selecione Arpejo e pressione um acorde.</div>
-        <div class="info"><strong>Manter acompanhamento</strong>Ative Contínuo e escolha um acorde.</div>
-        <div class="info"><strong>Adicionar nota grave</strong>Ative Baixo.</div>
-        <div class="info"><strong>Interromper tudo</strong>Pressione Silenciar.</div>
-        <div class="info"><strong>Salvar ajustes</strong>Pressione Salvar e depois uma memória de 1 a 6.</div>
-        <div class="info"><strong>Recuperar ajustes</strong>Pressione uma memória vermelha.</div>
-      </div>
-    </section>
+            <section class="card" id="problemas">
+                <h2>15. Solução de problemas</h2>
+                <div class="table-wrap">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Problema</th>
+                                <th>Procedimento recomendado</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>O aplicativo não produz som.</td>
+                                <td>Toque primeiro em uma tecla, verifique o volume do dispositivo e confirme que o navegador não está silenciado.</td>
+                            </tr>
+                            <tr>
+                                <td>O áudio apresenta chiado ou estalos no tablet.</td>
+                                <td>Reduza o volume físico para aproximadamente 60% a 80%, diminua o volume geral ou dos acordes, evite muitas notas sustentadas simultaneamente e feche aplicativos pesados em segundo plano. O ruído pode ocorrer por saturação
+                                    da saída ou limitação de processamento do dispositivo.</td>
+                            </tr>
+                            <tr>
+                                <td>O som fica preso.</td>
+                                <td>Pressione <strong>Silenciar</strong>. Se necessário, recarregue a página.</td>
+                            </tr>
+                            <tr>
+                                <td>O arpejo toca junto.</td>
+                                <td>Pressione <strong>Arpejo</strong> na área Execução.</td>
+                            </tr>
+                            <tr>
+                                <td>O arpejo está muito rápido ou lento.</td>
+                                <td>Abra <strong>Avançado</strong> e ajuste o controle Intervalo.</td>
+                            </tr>
+                            <tr>
+                                <td>O acorde continua tocando.</td>
+                                <td>Desative <strong>Contínuo</strong>, pressione novamente o acorde ativo ou use <strong>Silenciar</strong>.</td>
+                            </tr>
+                            <tr>
+                                <td>As memórias desapareceram.</td>
+                                <td>Confirme que o arquivo foi aberto no mesmo navegador e que os dados do site não foram apagados.</td>
+                            </tr>
+                            <tr>
+                                <td>A tela está muito apertada.</td>
+                                <td>Use o tablet na horizontal e ative Tela cheia.</td>
+                            </tr>
+                            <tr>
+                                <td>O toque está variando demais o volume.</td>
+                                <td>Abra Avançado e altere Sensível para Uniforme.</td>
+                            </tr>
+                            <tr>
+                                <td>O dedo aciona várias notas sem intenção.</td>
+                                <td>Desative Glissando no painel avançado.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
 
-    <footer>MANUAL DO TECLADO VIRTUAL · Versão referente ao aplicativo com seis memórias de ajustes</footer>
-  </main>
-</div>
+            <section class="card" id="resumo">
+                <h2>16. Consulta rápida</h2>
+                <div class="grid">
+                    <div class="info"><strong>Tocar uma nota</strong>Pressione uma tecla colorida.</div>
+                    <div class="info"><strong>Tocar um acorde completo</strong>Selecione Juntos e pressione um acorde.</div>
+                    <div class="info"><strong>Tocar uma nota por vez no acorde</strong>Selecione Arpejo e pressione um acorde.</div>
+                    <div class="info"><strong>Manter acompanhamento</strong>Ative Contínuo e escolha um acorde.</div>
+                    <div class="info"><strong>Adicionar nota grave</strong>Ative Baixo.</div>
+                    <div class="info"><strong>Interromper tudo</strong>Pressione Silenciar.</div>
+                    <div class="info"><strong>Salvar ajustes</strong>Pressione Salvar e depois uma memória de 1 a 6.</div>
+                    <div class="info"><strong>Recuperar ajustes</strong>Pressione uma memória vermelha.</div>
+                    <div class="info"><strong>Filtrar o círculo harmônico</strong>Pressione CH, escolha a tonalidade e pressione CH novamente para desligar.</div>
+                    <div class="info"><strong>Abrir o manual</strong>Pressione Manual no cabeçalho do aplicativo.</div>
+                </div>
+            </section>
+
+            <footer>MANUAL DO TECLADO VIRTUAL · Versão com círculo harmônico, presets musicais e seis memórias personalizáveis</footer>
+        </main>
+    </div>
 </body>
+
 </html>
