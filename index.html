@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
 <meta name="theme-color" content="#131426">
 <meta name="screen-orientation" content="landscape">
-<title>Teclado Virtual</title>
+<title>Teclado Virtual v3.6.2</title>
 <style>
 :root{--bg:#111326;--panel:#0b0e1c;--panel2:#191d35;--border:#343a59;--text:#f8fafc;--muted:#9ca8c3;--accent:#4f46e5;--success:#16a34a;--danger:#dc2626;--warning:#d97706}
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
@@ -28,12 +28,12 @@ h1{font-size:1.2rem;color:#e0e5f5;white-space:nowrap}.app-version{font-size:.58r
 .advanced{display:none}.advanced.open{display:block}.advanced-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:7px}.advanced .control{min-height:83px}
 #keyboard{display:flex;flex-direction:column;gap:3px;touch-action:none}.key-row{display:flex;width:100%;gap:3px}.key-cell{flex:1;min-width:0;display:flex}.sharp-cell{justify-content:flex-end}
 .key{position:relative;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-weight:900;text-shadow:0 1px 3px rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.24);box-shadow:0 4px 9px rgba(0,0,0,.34);touch-action:none;transition:transform .05s,filter .05s}.key.natural{width:100%;height:46px;border-radius:8px;align-items:center;padding-bottom:0;font-size:.72rem}.key.sharp{width:58%;height:42px;border-radius:6px;font-size:.6rem}.key.active{transform:translateY(3px) scale(.965);filter:brightness(1.55)}.key .hint{position:absolute;top:4px;right:5px;opacity:.6;font-size:.48rem}.key .velocity{position:absolute;left:4px;bottom:4px;font-size:.46rem;opacity:.55}
-.chord-section{display:flex;flex-direction:column;gap:6px}.chord-toolbar{display:grid;grid-template-columns:repeat(3,1fr);gap:6px}.chord-row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px}.circle-main-wrap{display:none}.circle-main-wrap.visible{display:flex;flex-direction:column;gap:3px}.circle-main-row{display:flex;justify-content:center;gap:4px;flex-wrap:nowrap}.circle-main-row .chord{flex:0 1 96px;min-width:62px;max-width:112px}.normal-chord-group.hidden{display:none}.manual-drum-stage{display:none;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.manual-drum-stage.visible{display:grid}.manual-drum-pad{height:68px;min-height:68px;font-size:1.3rem;background:linear-gradient(180deg,#475569,#172033);border:2px solid #64748b;box-shadow:0 5px 14px rgba(0,0,0,.32)}.manual-drum-pad span{display:block;font-size:.66rem;margin-top:4px;color:#dbeafe}.chord-section.manual-drums .chord-toolbar,.chord-section.manual-drums #sequence-panel{display:none}.chord{width:100%;height:42px;min-height:42px;min-width:0;padding:4px 2px;font-size:.7rem;background:linear-gradient(180deg,#514a80,#312d55);border:1px solid #716b9d}.sharp-chord{background:linear-gradient(180deg,#3b435f,#22283c)}.minor-chord{background:linear-gradient(180deg,#65436f,#3d2948)}.chord.function-tonic{background:linear-gradient(180deg,#23804b,#14532d);border-color:#4ade80}.chord.function-subdominant{background:linear-gradient(180deg,#2563a9,#1e3a8a);border-color:#60a5fa}.chord.function-dominant{background:linear-gradient(180deg,#b45309,#7c2d12);border-color:#fb923c}.chord.function-leading{background:linear-gradient(180deg,#9f1239,#5f1026);border-color:#fb7185}.chord.playing,.chord.latched{background:var(--success);box-shadow:0 0 0 2px #bbf7d0 inset}.chord.queued{outline:3px solid #facc15;outline-offset:1px}.chord-row.circle-filtered{display:flex;justify-content:center;align-items:center;flex-wrap:nowrap}.chord-row.circle-filtered .chord:not(.filtered-out){flex:0 1 92px;min-width:58px;max-width:110px}.secondary-dominants-wrap{display:none;margin-top:0;padding-top:0;border-top:0}.secondary-dominants-wrap.visible{display:flex;flex-direction:column;gap:0}.secondary-dominants-row{display:flex;justify-content:center;gap:4px;flex-wrap:nowrap}.secondary-dominant{flex:0 1 132px;min-width:92px;max-width:150px;background:linear-gradient(180deg,#7c3aed,#4c1d95);border-color:#c4b5fd}.secondary-dominant small{display:block;font-size:.52rem;opacity:.82;font-weight:700}.function-legend{display:none;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:1px;color:#cbd5e1;font-size:.58rem;line-height:1.05}.function-legend.visible{display:flex}.function-legend span{display:inline-flex;align-items:center;gap:4px}.function-legend i{width:10px;height:10px;border-radius:3px;display:inline-block}.legend-tonic{background:#23804b}.legend-subdominant{background:#2563a9}.legend-dominant{background:#b45309}.legend-leading{background:#9f1239}.legend-secondary{background:#7c3aed}
-.drum-panel{display:none;flex-direction:column;gap:3px;margin-top:2px;padding-top:2px;border-top:1px solid rgba(100,116,139,.25)}.drum-panel.visible{display:flex}.drum-row{display:grid;grid-template-columns:repeat(9,minmax(0,1fr));gap:3px}.drum-panel button{height:30px;min-height:30px;padding:1px 3px;border-radius:7px;font-size:.78rem;line-height:1}.drum-pad{background:linear-gradient(180deg,#475569,#1e293b);border-color:#64748b}.drum-pad.layer-on{background:linear-gradient(180deg,#15803d,#14532d);border-color:#4ade80}.drum-pattern{background:linear-gradient(180deg,#4338ca,#312e81);border-color:#818cf8}.drum-pattern.active{background:linear-gradient(180deg,#16a34a,#166534)}.drum-fill{background:linear-gradient(180deg,#b45309,#7c2d12);border-color:#fb923c}.drum-ending{background:linear-gradient(180deg,#be123c,#881337);border-color:#fb7185}.drum-stop{background:linear-gradient(180deg,#dc2626,#7f1d1d)}.drum-note{display:none}.drum-mode-active{background:#7c3aed!important;border-color:#c4b5fd!important}
-.transport{display:grid;grid-template-columns:1.15fr .9fr .9fr .9fr repeat(6,minmax(44px,.55fr)) 1.05fr 1.05fr;gap:6px}.transport button{font-size:.72rem}.memory-button{background:var(--success);border-color:#4ade80}.memory-button.custom{background:var(--danger);border-color:#f87171}.accompaniment-stop-pending{background:#b45309!important;border-color:#facc15!important;box-shadow:0 0 0 2px rgba(250,204,21,.3) inset}.memory-button.save-target{outline:3px solid #facc15;outline-offset:1px}.save-armed{background:var(--warning)!important;box-shadow:0 0 0 3px rgba(250,204,21,.25)}.circle-active{background:#0f766e!important;border-color:#2dd4bf!important}.chord.filtered-out{display:none}.circle-dialog{border:1px solid var(--border);border-radius:16px;background:#111529;color:var(--text);padding:16px;max-width:min(680px,92vw);box-shadow:0 24px 70px rgba(0,0,0,.55)}.circle-dialog::backdrop{background:rgba(0,0,0,.72)}.circle-dialog h2{font-size:1.05rem;margin-bottom:6px}.circle-dialog p{color:var(--muted);font-size:.78rem;margin-bottom:12px}.circle-note-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}.circle-note-grid button{min-height:48px}.circle-close{width:100%;margin-top:10px;background:#38405f;border-color:#58617f}.status{min-height:20px;color:#b5bfd5;font-size:.76rem;text-align:center}.help{color:#7f8aa3;font-size:.65rem;line-height:1.3;text-align:center}
+.chord-section{display:flex;flex-direction:column;gap:6px}.chord-toolbar{display:grid;grid-template-columns:repeat(2,1fr);gap:6px}.chord-row{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:4px}.circle-main-wrap{display:none}.circle-main-wrap.visible{display:flex;flex-direction:column;gap:3px}.circle-main-row{display:flex;justify-content:center;gap:4px;flex-wrap:nowrap}.circle-main-row .chord{flex:0 1 96px;min-width:62px;max-width:112px}.normal-chord-group.hidden{display:none}.manual-drum-stage{display:none;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}.manual-drum-stage.visible{display:grid}.manual-drum-pad{height:68px;min-height:68px;font-size:1.3rem;background:linear-gradient(180deg,#475569,#172033);border:2px solid #64748b;box-shadow:0 5px 14px rgba(0,0,0,.32);touch-action:none;user-select:none;-webkit-user-select:none}.manual-drum-pad span{display:block;font-size:.66rem;margin-top:4px;color:#dbeafe}.chord-section.manual-drums .chord-toolbar,.chord-section.manual-drums #sequence-panel{display:none}.chord{width:100%;height:42px;min-height:42px;min-width:0;padding:4px 2px;font-size:.7rem;background:linear-gradient(180deg,#514a80,#312d55);border:1px solid #716b9d}.sharp-chord{background:linear-gradient(180deg,#3b435f,#22283c)}.minor-chord{background:linear-gradient(180deg,#65436f,#3d2948)}.chord.function-tonic{background:linear-gradient(180deg,#23804b,#14532d);border-color:#4ade80}.chord.function-subdominant{background:linear-gradient(180deg,#2563a9,#1e3a8a);border-color:#60a5fa}.chord.function-dominant{background:linear-gradient(180deg,#b45309,#7c2d12);border-color:#fb923c}.chord.function-leading{background:linear-gradient(180deg,#9f1239,#5f1026);border-color:#fb7185}.chord.playing,.chord.latched{background:var(--success);box-shadow:0 0 0 2px #bbf7d0 inset}.chord.queued{outline:3px solid #facc15;outline-offset:1px}.chord-row.circle-filtered{display:flex;justify-content:center;align-items:center;flex-wrap:nowrap}.chord-row.circle-filtered .chord:not(.filtered-out){flex:0 1 92px;min-width:58px;max-width:110px}.secondary-dominants-wrap{display:none;margin-top:0;padding-top:0;border-top:0}.secondary-dominants-wrap.visible{display:flex;flex-direction:column;gap:0}.secondary-dominants-row{display:flex;justify-content:center;gap:4px;flex-wrap:nowrap}.secondary-dominant{flex:0 1 132px;min-width:92px;max-width:150px;background:linear-gradient(180deg,#7c3aed,#4c1d95);border-color:#c4b5fd}.secondary-dominant small{display:block;font-size:.52rem;opacity:.82;font-weight:700}.function-legend{display:none;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:1px;color:#cbd5e1;font-size:.58rem;line-height:1.05}.function-legend.visible{display:flex}.function-legend span{display:inline-flex;align-items:center;gap:4px}.function-legend i{width:10px;height:10px;border-radius:3px;display:inline-block}.legend-tonic{background:#23804b}.legend-subdominant{background:#2563a9}.legend-dominant{background:#b45309}.legend-leading{background:#9f1239}.legend-secondary{background:#7c3aed}
+.exec-drum-row{display:flex;gap:8px;align-items:flex-start;width:100%}.exec-drum-row>.chord-toolbar{flex:1 1 0;min-width:0;margin:0}.drum-panel{display:none;flex-direction:column;gap:3px;flex:1 1 0;min-width:0;margin:0;padding-left:8px;border-left:1px solid rgba(100,116,139,.25)}.drum-panel.visible{display:flex}.drum-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(34px,1fr));gap:3px}.drum-panel button{height:30px;min-height:30px;padding:1px 3px;border-radius:7px;font-size:.78rem;line-height:1}.drum-pad{background:linear-gradient(180deg,#475569,#1e293b);border-color:#64748b}.drum-pad.layer-on{background:linear-gradient(180deg,#15803d,#14532d);border-color:#4ade80}.drum-pattern{background:linear-gradient(180deg,#4338ca,#312e81);border-color:#818cf8}.drum-pattern.active{background:linear-gradient(180deg,#16a34a,#166534)}.drum-fill{background:linear-gradient(180deg,#b45309,#7c2d12);border-color:#fb923c}.drum-ending{background:linear-gradient(180deg,#be123c,#881337);border-color:#fb7185}.drum-fill.active,.drum-ending.active{box-shadow:0 0 0 2px rgba(250,204,21,.3) inset}.drum-stop{background:linear-gradient(180deg,#dc2626,#7f1d1d)}.drum-note{display:none}.drum-mode-active{background:#7c3aed!important;border-color:#c4b5fd!important}
+.transport{display:grid;grid-template-columns:1.12fr .84fr .84fr .7fr repeat(6,minmax(40px,.52fr)) 1fr 1fr;gap:5px}.transport button{font-size:.69rem}.memory-button{background:var(--success);border-color:#4ade80}.memory-button.custom{background:var(--danger);border-color:#f87171}.accompaniment-stop-pending{background:#b45309!important;border-color:#facc15!important;box-shadow:0 0 0 2px rgba(250,204,21,.3) inset}.memory-button.save-target{outline:3px solid #facc15;outline-offset:1px}.save-armed{background:var(--warning)!important;box-shadow:0 0 0 3px rgba(250,204,21,.25)}.circle-active{background:#0f766e!important;border-color:#2dd4bf!important}.chord.filtered-out{display:none}.circle-dialog{border:1px solid var(--border);border-radius:16px;background:#111529;color:var(--text);padding:16px;max-width:min(680px,92vw);box-shadow:0 24px 70px rgba(0,0,0,.55)}.circle-dialog::backdrop{background:rgba(0,0,0,.72)}.circle-dialog h2{font-size:1.05rem;margin-bottom:6px}.circle-dialog p{color:var(--muted);font-size:.78rem;margin-bottom:12px}.circle-note-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}.circle-note-grid button{min-height:48px}.circle-close{width:100%;margin-top:10px;background:#38405f;border-color:#58617f}.songs-dialog{border:1px solid var(--border);border-radius:16px;background:#111529;color:var(--text);padding:16px;max-width:min(480px,92vw);width:100%;box-shadow:0 24px 70px rgba(0,0,0,.55)}.songs-dialog::backdrop{background:rgba(0,0,0,.72)}.songs-dialog h2{font-size:1.05rem;margin-bottom:6px}.songs-hint{color:var(--muted);font-size:.72rem;line-height:1.35;margin-bottom:12px}.songs-current-row{display:flex;gap:6px;margin-bottom:10px}.songs-current-row input{flex:1 1 auto;min-width:0;height:38px;border-radius:8px;border:1px solid #58617f;background:#1c2338;color:var(--text);padding:0 10px;font-size:.82rem}.songs-current-row input#song-bpm-input{flex:0 0 64px;text-align:center;padding:0 4px}.songs-current-row button{flex:0 0 auto;height:38px;padding:0 12px;font-size:.72rem;border-radius:8px}.songs-list{display:flex;flex-direction:column;gap:6px;max-height:220px;overflow-y:auto;margin-bottom:12px}.songs-empty{color:var(--muted);font-size:.74rem;text-align:center;padding:8px 0}.song-item{display:flex;gap:6px;align-items:stretch}.song-item .song-load{flex:1 1 auto;min-width:0;text-align:left;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;height:38px;border-radius:8px;font-size:.76rem;padding:0 10px}.song-item.song-active .song-load{background:#0f766e;border-color:#2dd4bf}.song-item .song-delete{flex:0 0 auto;width:38px;height:38px;border-radius:8px;font-size:.85rem}.songs-actions{display:flex;gap:6px}.songs-actions button{flex:1 1 0;height:38px;border-radius:8px;font-size:.74rem}.status{min-height:20px;color:#b5bfd5;font-size:.76rem;text-align:center}.help{color:#7f8aa3;font-size:.65rem;line-height:1.3;text-align:center}
 
-.sequence-panel{display:flex;flex-direction:column;gap:5px;padding:6px 7px;border:1px solid #35405d;border-radius:10px;background:#171c31}.sequence-top{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:5px;align-items:center}.sequence-sections{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:4px}.sequence-sections button,.sequence-controls button{height:31px;min-height:31px;padding:3px 7px;font-size:.66rem}.sequence-sections button.active-section{background:#0f766e;border-color:#2dd4bf}.sequence-sections button.queued-section{background:#7c3aed;border-color:#c4b5fd;box-shadow:0 0 0 2px rgba(196,181,253,.18)}.sequence-sections button.queued-section::before{content:'Próxima · ';font-size:.54rem;color:#ede9fe}.sequence-sections button.has-content::after{content:' •';color:#86efac}.sequence-controls{display:flex;gap:4px;flex-wrap:nowrap}.sequence-loop.active{background:#166534;border-color:#4ade80}.sequence-strip{display:flex;align-items:center;gap:4px;min-height:32px;overflow-x:auto;padding:2px}.sequence-empty{color:var(--muted);font-size:.68rem;white-space:nowrap}.sequence-item{flex:0 0 auto;min-width:48px;padding:5px 7px;border-radius:7px;background:#303858;border:1px solid #596482;font-size:.68rem;text-align:center}.sequence-item.half::after{content:' ½';color:#facc15}.sequence-item.full::after{content:' 1';color:#93c5fd}.sequence-item.current{background:#166534;border-color:#4ade80}.sequence-recording{background:#991b1b!important;border-color:#f87171!important;box-shadow:0 0 0 2px rgba(248,113,113,.2)}.sequence-panel.sequence-hidden{display:none}.sequence-toggle-active{background:#0f766e!important;border-color:#2dd4bf!important}
-@media(max-width:980px){body{padding:6px}.quick-controls{grid-template-columns:1.25fr repeat(4,minmax(105px,1fr));overflow-x:auto}.advanced-grid{grid-template-columns:repeat(5,minmax(120px,1fr));overflow-x:auto}.panel{padding:7px}.key.natural{height:40px}.key.sharp{height:28px}.chord{height:38px;min-height:38px;font-size:.62rem;padding:3px 1px}.drum-panel button{height:26px;min-height:26px;font-size:.82rem}.transport{grid-template-columns:1.05fr .75fr .8fr repeat(6,minmax(34px,.46fr)) .9fr .9fr}.transport button{min-height:40px;padding:5px 3px}.help{display:none}}
+.sequence-panel{display:flex;flex-direction:column;gap:6px;padding:5px 6px;border:1px solid #35405d;border-radius:10px;background:#171c31}.song-bar{display:flex;align-items:center;justify-content:space-between;gap:6px;padding:2px 2px 4px;border-bottom:1px solid rgba(100,116,139,.25)}.song-bar #song-current-name{font-size:.78rem;font-weight:700;color:#e2e8f0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.song-bar button{flex:0 0 auto;height:28px;padding:2px 10px;font-size:.66rem;border-radius:7px}.sequence-top{display:flex;flex-direction:column;align-items:stretch;gap:5px;width:100%;min-width:0}.sequence-sections{display:flex;flex-wrap:nowrap;gap:3px;width:100%;min-width:0}.sequence-section-control{display:flex;align-items:center;gap:2px;flex:1 1 0;min-width:0}.sequence-section-control>button{flex:1 1 auto;min-width:0;height:30px;min-height:30px;padding:2px 3px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;border-radius:7px;font-size:.56rem}.section-repeat{flex:0 0 24px;box-sizing:border-box;width:24px;height:30px;min-height:30px;margin:0;padding:0;text-align:center;border-radius:7px;background:#22293f;color:#f8fafc;border:1.5px solid #7d8bab;box-shadow:none;font-size:.62rem;font-weight:800;line-height:1;appearance:textfield;-moz-appearance:textfield}.section-repeat:focus{outline:2px solid #2dd4bf;outline-offset:0;border-color:#2dd4bf}.section-repeat::-webkit-inner-spin-button,.section-repeat::-webkit-outer-spin-button{margin:0;opacity:0}.sequence-sections button.active-section{background:#0f766e;border-color:#2dd4bf}.sequence-sections button.queued-section{background:#7c3aed;border-color:#c4b5fd;box-shadow:0 0 0 2px rgba(196,181,253,.18)}.sequence-sections button.queued-section::before{content:'Próx. ';font-size:.48rem;color:#ede9fe}.sequence-sections button.has-content::after{content:' •';color:#86efac}.sequence-controls{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:4px;width:100%;min-width:0}.sequence-controls button{width:100%;min-width:0;height:30px;min-height:30px;padding:2px 3px;border-radius:7px;font-size:.62rem;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.sequence-auto.active{background:#0f766e;border-color:#2dd4bf}.sequence-section-control.playing-repeat>button{box-shadow:0 0 0 2px rgba(74,222,128,.35) inset}.sequence-strip{display:grid;grid-template-rows:repeat(2,25px);grid-auto-flow:column;grid-auto-columns:max-content;align-items:stretch;gap:3px;min-height:53px;max-height:53px;overflow-x:auto;overflow-y:hidden;padding:1px 2px;scrollbar-width:thin}.sequence-empty{grid-row:1/3;align-self:center;color:var(--muted);font-size:.64rem;white-space:nowrap}.sequence-item{display:flex;align-items:center;justify-content:center;min-width:36px;height:25px;padding:2px 5px;border-radius:6px;background:#303858;border:1px solid #596482;font-size:.58rem;line-height:1;text-align:center;white-space:nowrap}.sequence-item.half::after{content:' ½';color:#facc15}.sequence-item.full::after{content:' 1';color:#93c5fd}.sequence-item.current{background:#166534;border-color:#4ade80}.sequence-item.pause{background:#1f2937;border-color:#94a3b8}.sequence-item.pause::before{content:"⏸ ";color:#e2e8f0}.sequence-recording{background:#991b1b!important;border-color:#f87171!important;box-shadow:0 0 0 2px rgba(248,113,113,.2)}.sequence-panel.sequence-hidden{display:none}.sequence-toggle-active{background:#0f766e!important;border-color:#2dd4bf!important}
+@media(max-width:980px){body{padding:6px}.quick-controls{grid-template-columns:1.25fr repeat(4,minmax(105px,1fr));overflow-x:auto}.advanced-grid{grid-template-columns:repeat(5,minmax(120px,1fr));overflow-x:auto}.panel{padding:7px}.key.natural{height:40px}.key.sharp{height:28px}.chord{height:38px;min-height:38px;font-size:.62rem;padding:3px 1px}.drum-panel button{height:26px;min-height:26px;font-size:.72rem;padding:1px}.sequence-sections{gap:2px}.sequence-section-control{flex:1 1 0;min-width:0;gap:2px}.sequence-section-control>button{height:29px;min-height:29px;padding:2px 2px;font-size:.52rem}.section-repeat{width:20px;height:29px;min-height:29px;font-size:.58rem}.sequence-controls{grid-template-columns:1.05fr .68fr .68fr .58fr .68fr .58fr;gap:3px}.sequence-controls button{height:29px;min-height:29px;padding:2px 3px;font-size:.58rem}.transport{grid-template-columns:1fr .63fr .72fr .48fr repeat(6,minmax(28px,.40fr)) .84fr .84fr}.transport button{min-height:36px;padding:4px 2px;font-size:.6rem}.help{display:none}}
 @media(max-height:600px){h1{font-size:1rem}.key.natural{height:36px}.key.sharp{height:24px}.quick-controls .control{padding:5px}.chord{height:34px;min-height:34px}.status{font-size:.68rem}}
 
 #drum-engine-status{
@@ -54,7 +54,7 @@ h1{font-size:1.2rem;color:#e0e5f5;white-space:nowrap}.app-version{font-size:.58r
 </head>
 <body>
 <div id="rotate-msg"><div class="icon">📱</div><h2>Gire o dispositivo</h2><p>O Teclado Virtual foi organizado para uso horizontal.</p></div>
-<header><h1>🎹 Teclado Virtual <small class="app-version">v3.0.5</small></h1><div class="header-actions"><button type="button" class="secondary" onclick="window.location.href='manual-teclado-virtual.html'">📘 Manual</button><button id="advanced-toggle" class="secondary">⚙️ Avançado</button><button id="fullscreen" class="secondary">⛶ Tela cheia</button></div></header>
+<header><h1>🎹 Teclado Virtual <small class="app-version">v3.6.2</small></h1><div class="header-actions"><button type="button" class="secondary" onclick="window.location.href='manual-teclado-virtual.html'">📘 Manual</button><button id="advanced-toggle" class="secondary">⚙️ Avançado</button><button id="fullscreen" class="secondary">⛶ Tela cheia</button></div></header>
 <main class="app">
 <section class="panel quick-controls">
 <div class="control"><label for="instrument">Instrumento</label><select id="instrument"><option value="piano">🎹 Piano</option><option value="xylophone">🪇 Xilofone</option><option value="flute">🪈 Flauta</option><option value="churchOrgan">⛪ Órgão de igreja</option><option value="accordion">🪗 Acordeom</option><option value="violin">🎻 Violino</option><option value="bassGuitar">🎸 Baixo</option><option value="acousticGuitar">🪕 Violão</option><option value="synthPad">🌌 Pad sintetizado</option></select></div>
@@ -78,15 +78,39 @@ h1{font-size:1.2rem;color:#e0e5f5;white-space:nowrap}.app-version{font-size:.58r
 <div class="control compact"><span class="control-title">Metrônomo</span><button id="metronome-toggle" class="secondary" title="Iniciar metrônomo" aria-label="Iniciar metrônomo">▶ Iniciar</button></div>
 <div class="control"><label for="rhythm-pattern">Ritmo do acompanhamento</label><select id="rhythm-pattern"><option value="whole">Nota inteira</option><option value="halves">Duas batidas</option><option value="quarters">Quatro batidas</option><option value="waltz">Valsa</option><option value="broken">Dedilhado</option><optgroup label="Batidas de violão"><option value="guitar-down4">↓ ↓ ↓ ↓</option><option value="guitar-down8">↓ ↓ ↓ ↓ ↓ ↓ ↓ ↓</option><option value="guitar-alternate">↓ ↑ ↓ ↑ ↓ ↑ ↓ ↑</option><option value="guitar-popular">↓ · ↓ ↑ · ↑ ↓ ↑</option><option value="guitar-waltz">Baixo · ↓ ↑ · ↓ ↑</option><option value="guitar-68">↓ · · ↓ · ↑</option><option value="guitar-muted">↓ · ↓ ↑ X ↑ ↓ ↑</option></optgroup></select></div>
 <div class="control compact"><span class="control-title">Toque no tablet</span><div class="button-pair"><button id="velocity-toggle" class="active">Sensível</button><button id="gliss-toggle" class="active">Glissando</button></div></div>
+<div class="control compact"><span class="control-title">Acompanhamento</span><div class="button-pair"><button id="latch-toggle">Contínuo</button><button id="bass-toggle">Baixo</button></div></div>
 </div></section>
 <section class="panel" id="keyboard" aria-label="Teclado musical"><div class="key-row" id="sharp-row"></div><div class="key-row" id="natural-row"></div></section>
 <section class="panel chord-section">
-<div class="chord-toolbar"><div class="control compact"><span class="control-title">Execução</span><div class="button-pair"><button id="chord-together" class="active">Juntos</button><button id="chord-arpeggio">Arpejo</button></div></div><div class="control compact"><span class="control-title">Troca de acorde</span><div class="button-triple"><button id="change-immediate">Imediata</button><button id="change-half">Meio compasso</button><button id="change-next" class="active">Próximo compasso</button></div></div><div class="control compact"><span class="control-title">Acompanhamento</span><div class="button-pair"><button id="latch-toggle">Contínuo</button><button id="bass-toggle">Baixo</button></div></div></div>
+<div class="exec-drum-row">
+<div class="chord-toolbar"><div class="control compact"><span class="control-title">Execução</span><div class="button-pair"><button id="chord-together" class="active">Juntos</button><button id="chord-arpeggio">Arpejo</button></div></div><div class="control compact"><span class="control-title">Troca de acorde</span><div class="button-triple"><button id="change-immediate">Imediata</button><button id="change-half">Meio compasso</button><button id="change-next" class="active">Próximo compasso</button></div></div></div>
+<div id="drum-panel" class="drum-panel visible" aria-label="Controles compactos da bateria">
+  <div class="drum-row drum-row-presets" id="drum-presets">
+    <button class="drum-pattern" data-pattern="rock" title="Rock" aria-label="Padrão Rock">🤘</button>
+    <button class="drum-pattern" data-pattern="forro" title="Forró" aria-label="Padrão Forró">🪗</button>
+    <button class="drum-pattern" data-pattern="bolero" title="Bolero" aria-label="Padrão Bolero">🌹</button>
+    <button class="drum-pattern" data-pattern="sertanejo" title="Sertanejo" aria-label="Padrão Sertanejo">🤠</button>
+    <button class="drum-pattern" data-pattern="balada" title="Balada" aria-label="Padrão Balada">🌙</button>
+    <button class="drum-pattern" data-pattern="suave" title="Suave" aria-label="Padrão Suave">🍃</button>
+    <button class="drum-pattern" data-pattern="bossa" title="Bossa nova" aria-label="Padrão Bossa nova">🎷</button>
+  </div>
+  <div class="drum-row drum-row-controls" id="drum-controls">
+    <button class="drum-fill" id="drum-fill" title="Virada" aria-label="Executar virada">↺</button>
+    <button class="drum-ending" id="drum-ending" title="Encerramento" aria-label="Executar encerramento">✦■</button>
+    <button class="drum-pad layer-on" data-layer="kick" title="Ativar ou silenciar bumbo programado" aria-label="Ativar ou silenciar bumbo programado">●</button>
+    <button class="drum-pad layer-on" data-layer="snare" title="Ativar ou silenciar caixa programada" aria-label="Ativar ou silenciar caixa programada">✹</button>
+    <button class="drum-pad layer-on" data-layer="hat" title="Ativar ou silenciar chimbal programado" aria-label="Ativar ou silenciar chimbal programado">✦</button>
+    <button class="drum-pad" id="drum-manual" title="Modo Manual" aria-label="Alternar Manual e Loop">M</button>
+    <button class="drum-stop" id="drum-stop" title="Parar bateria" aria-label="Parar bateria">■</button>
+  </div>
+  <div class="drum-note" id="drum-status" aria-live="polite"></div>
+</div>
+</div>
 <div id="manual-drum-stage" class="manual-drum-stage" aria-label="Bateria manual">
-<button class="manual-drum-pad" data-drum="kick" aria-label="Bumbo">●<span>Bumbo</span></button>
+<button class="manual-drum-pad" data-drum="openhat" aria-label="Chimbal aberto">✧<span>Chimbal aberto</span></button>
 <button class="manual-drum-pad" data-drum="snare" aria-label="Caixa">✹<span>Caixa</span></button>
 <button class="manual-drum-pad" data-drum="hat" aria-label="Chimbal fechado">✦<span>Chimbal</span></button>
-<button class="manual-drum-pad" data-drum="openhat" aria-label="Chimbal aberto">✧<span>Chimbal aberto</span></button>
+<button class="manual-drum-pad" data-drum="kick" aria-label="Bumbo">●<span>Bumbo</span></button>
 <button class="manual-drum-pad" data-drum="tomLow" aria-label="Tom grave">①<span>Tom grave</span></button>
 <button class="manual-drum-pad" data-drum="tomMid" aria-label="Tom médio">②<span>Tom médio</span></button>
 <button class="manual-drum-pad" data-drum="tomHigh" aria-label="Tom agudo">③<span>Tom agudo</span></button>
@@ -98,32 +122,28 @@ h1{font-size:1.2rem;color:#e0e5f5;white-space:nowrap}.app-version{font-size:.58r
 <div id="secondary-dominants-wrap" class="secondary-dominants-wrap"><div id="secondary-dominants" class="secondary-dominants-row"></div></div>
 
 <div id="sequence-panel" class="sequence-panel" aria-label="Sequências musicais do campo harmônico">
+  <div class="song-bar"><span id="song-current-name">🎵 Sem título</span><button id="songs-open" class="secondary" title="Gerenciar músicas salvas" aria-label="Gerenciar músicas salvas">📚 Músicas</button></div>
   <div class="sequence-top">
     <div class="sequence-sections" role="tablist" aria-label="Partes da música">
-      <button class="secondary active-section" data-sequence-section="verse">Estrofe</button>
-      <button class="secondary" data-sequence-section="prechorus">Pré-refrão</button>
-      <button class="secondary" data-sequence-section="chorus">Refrão</button>
-      <button class="secondary" data-sequence-section="bridge">Ponte</button>
+      <div class="sequence-section-control" data-section-control="verse"><button class="secondary active-section" data-sequence-section="verse">Seq. 1</button><input class="section-repeat" data-section-repeat="verse" type="number" min="0" max="16" value="0" title="0: fora do Auto · 1 a 16: repetições da Seq. 1" aria-label="Repetições da Seq. 1"></div>
+      <div class="sequence-section-control" data-section-control="prechorus"><button class="secondary" data-sequence-section="prechorus">Seq. 2</button><input class="section-repeat" data-section-repeat="prechorus" type="number" min="0" max="16" value="0" title="0: fora do Auto · 1 a 16: repetições" title="0: fora do Auto · 1 a 16: repetições da Seq. 2" aria-label="Repetições da Seq. 2"></div>
+      <div class="sequence-section-control" data-section-control="chorus"><button class="secondary" data-sequence-section="chorus">Seq. 3</button><input class="section-repeat" data-section-repeat="chorus" type="number" min="0" max="16" value="0" title="0: fora do Auto · 1 a 16: repetições" title="0: fora do Auto · 1 a 16: repetições da Seq. 3" aria-label="Repetições da Seq. 3"></div>
+      <div class="sequence-section-control" data-section-control="bridge"><button class="secondary" data-sequence-section="bridge">Seq. 4</button><input class="section-repeat" data-section-repeat="bridge" type="number" min="0" max="16" value="0" title="0: fora do Auto · 1 a 16: repetições da Seq. 4" aria-label="Repetições da Seq. 4"></div>
+      <div class="sequence-section-control" data-section-control="section5"><button class="secondary" data-sequence-section="section5">Seq. 5</button><input class="section-repeat" data-section-repeat="section5" type="number" min="0" max="16" value="0" title="0: fora do Auto · 1 a 16: repetições da Seq. 5" aria-label="Repetições da Seq. 5"></div>
+      <div class="sequence-section-control" data-section-control="section6"><button class="secondary" data-sequence-section="section6">Seq. 6</button><input class="section-repeat" data-section-repeat="section6" type="number" min="0" max="16" value="0" title="0: fora do Auto · 1 a 16: repetições da Seq. 6" aria-label="Repetições da Seq. 6"></div>
     </div>
-    <div class="sequence-controls"><button id="sequence-record" class="secondary" title="Gravar acordes na parte selecionada">● Gravar</button><button id="sequence-play" class="secondary" title="Reproduzir parte selecionada">▶</button><button id="sequence-loop" class="secondary sequence-loop active" title="Repetir continuamente">↻</button><button id="sequence-stop" class="secondary" title="Parar sequência">■</button><button id="sequence-clear" class="danger" title="Apagar parte selecionada">⌫</button></div>
+    <div class="sequence-controls"><button id="sequence-record" class="secondary" title="Gravar acordes na parte selecionada">● Gravar</button><button id="sequence-rest-full" class="secondary" title="Adicionar pausa de um compasso">⏸ 1</button><button id="sequence-rest-half" class="secondary" title="Adicionar pausa de meio compasso">⏸ ½</button><button id="sequence-play" class="secondary" title="Reproduzir parte selecionada">▶</button><button id="sequence-auto" class="secondary sequence-auto" title="Executar automaticamente todas as seções configuradas">Auto</button><button id="sequence-clear" class="danger" title="Apagar o último acorde ou pausa">⌫</button></div>
   </div>
-  <div id="sequence-strip" class="sequence-strip"><span class="sequence-empty">Ative CH e grave a Estrofe.</span></div>
-</div>
-<div id="drum-panel" class="drum-panel" aria-label="Controles compactos da bateria">
-  <div class="drum-row" id="drum-controls">
-    <button class="drum-pattern" data-pattern="rock" title="Rock" aria-label="Padrão Rock">🤘</button>
-    <button class="drum-pattern" data-pattern="forro" title="Forró" aria-label="Padrão Forró">🪗</button>
-    <button class="drum-pattern" data-pattern="bolero" title="Bolero" aria-label="Padrão Bolero">🌹</button>
-    <button class="drum-pattern" data-pattern="sertanejo" title="Sertanejo" aria-label="Padrão Sertanejo">🤠</button>
-    <button class="drum-pad layer-on" data-layer="kick" title="Ativar ou silenciar bumbo programado" aria-label="Ativar ou silenciar bumbo programado">●</button>
-    <button class="drum-pad layer-on" data-layer="snare" title="Ativar ou silenciar caixa programada" aria-label="Ativar ou silenciar caixa programada">✹</button>
-    <button class="drum-pad layer-on" data-layer="hat" title="Ativar ou silenciar chimbal programado" aria-label="Ativar ou silenciar chimbal programado">✦</button>
-    <button class="drum-pad" id="drum-manual" title="Modo Manual" aria-label="Alternar Manual e Loop">M</button>
-    <button class="drum-stop" id="drum-stop" title="Parar bateria" aria-label="Parar bateria">■</button>
-  </div>
-  <div class="drum-note" id="drum-status" aria-live="polite"></div>
+  <div id="sequence-strip" class="sequence-strip"><span class="sequence-empty">Grave os acordes da Seq. 1.</span></div>
 </div>
 </section>
+<dialog id="songs-dialog" class="songs-dialog" aria-label="Gerenciar músicas salvas">
+  <h2>Minhas músicas</h2>
+  <p class="songs-hint">Salve a música atual (Seq. 1 a 6), com suas repetições e BPM. Só a música atual aparece na tela principal — as demais ficam guardadas aqui.</p>
+  <div class="songs-current-row"><input id="song-name-input" type="text" placeholder="Nome da música" maxlength="40" aria-label="Nome da música"><input id="song-bpm-input" type="number" min="40" max="220" step="1" value="100" placeholder="BPM" title="Andamento (BPM) da música" aria-label="BPM da música"><button id="song-save" class="secondary" title="Salvar a sequência atual com este nome">💾 Salvar</button></div>
+  <div id="songs-list" class="songs-list"><span class="songs-empty">Nenhuma música salva ainda.</span></div>
+  <div class="songs-actions"><button id="song-new" class="secondary" title="Começar uma música em branco">🆕 Nova música</button><button id="songs-close" class="secondary">Fechar</button></div>
+</dialog>
 <section class="panel transport"><button id="save-settings" class="secondary">💾 Salvar</button><button id="sequence-toggle" class="secondary sequence-toggle-active" title="Ocultar barra de sequências" aria-label="Mostrar ou ocultar sequências">🎼 Seq.</button><button id="circle-toggle" class="secondary" title="Círculo Harmônico">CH</button><button id="drum-toggle" class="secondary" title="Mostrar ou ocultar bateria" aria-label="Mostrar ou ocultar bateria">🥁</button><button class="memory-button" data-memory="1">1</button><button class="memory-button" data-memory="2">2</button><button class="memory-button" data-memory="3">3</button><button class="memory-button" data-memory="4">4</button><button class="memory-button" data-memory="5">5</button><button class="memory-button" data-memory="6">6</button><button id="stop-accompaniments" class="secondary" title="Parar bateria, sequência e acompanhamento no fim do compasso">⏹ Acomp.</button><button id="stop-all" class="danger">⏹ Silenciar</button></section>
 <dialog id="circle-dialog" class="circle-dialog"><h2>Círculo Harmônico</h2><p>Escolha a tonalidade. Serão mostrados os acordes diatônicos, o VII grau diminuto e, em uma faixa separada, os dominantes secundários.</p><div id="circle-note-grid" class="circle-note-grid"></div><button id="circle-close" class="circle-close">Cancelar</button></dialog>
 <div class="status" id="status">Pronto para tocar.</div><div class="help">No tablet, mantenha a tecla pressionada para sustentar e deslize o dedo para fazer glissando. A intensidade varia conforme a altura do toque quando “Sensível” está ativo.</div>
@@ -138,7 +158,7 @@ const LABELS={piano:"Piano",xylophone:"Xilofone",flute:"Flauta",churchOrgan:"Ór
 const CHORD_INTERVALS={minor:[0,3,7],major:[0,4,7],minor7:[0,3,7,10],dominant7:[0,4,7,10],sus2:[0,2,7],sus4:[0,5,7],diminished:[0,3,6]};
 const CIRCLE_DEGREES=[{step:0,type:"major"},{step:2,type:"minor"},{step:4,type:"minor"},{step:5,type:"major"},{step:7,type:"major"},{step:9,type:"minor"},{step:11,type:"diminished"}];
 const SECONDARY_DOMINANTS=[{targetStep:2,targetType:"minor",degree:"V/ii"},{targetStep:4,targetType:"minor",degree:"V/iii"},{targetStep:5,targetType:"major",degree:"V/IV"},{targetStep:7,targetType:"major",degree:"V/V"},{targetStep:9,targetType:"minor",degree:"V/vi"}];
-let audioCtx,masterGain,limiter,drumBus,drumCompressor,openHatVoice=null,drumEngine="acoustic",drumSamplesReady=false,drumSamplesLoading=false,drumSampleBuffers={},drumRoundRobin={},drumSamplesLoadedCount=0,drumSamplesTotalCount=0,drumSamplesFailureCount=0,instrument="piano",octave=0,sustainMode="hold",releaseMs=650,attackMs=20,chordMode="together",arpInterval=280,arpPattern="up",chordType="minor",inversion=0,bassEnabled=false,latchEnabled=false,splitEnabled=false,splitInstrument="churchOrgan",velocityEnabled=true,glissEnabled=true,metronomeOn=false,metronomeTimer=null,bpm=100,rhythmPattern="whole",chordChangeMode="nextBar",latchedRoot=null,latchedType=null,pendingRoot=null,pendingType=null,pendingButton=null,latchedButton=null,accompanimentTimer=null,accompanimentEvents=[],accompanimentHalfTimer=null,activeVoices=new Set(),pointerVoices=new Map(),pointerLastKey=new Map(),pressedKeys=new Map(),saveArmed=false,actionToken=0,alternateDirection=false,circleEnabled=false,circleRoot=null,drumMode=false,drumRunning=false,drumPattern="rock",drumManual=false,drumStep=0,drumTimer=null,drumNextTime=0,drumFillQueued=false,drumEndingQueued=false,drumLayers={kick:true,snare:true,hat:true},sequenceRecording=false,sequencePlaying=false,sequenceTimer=null,sequenceIndex=-1,sequenceHalvesRemaining=0,sequenceStartQueued=false,activeSequenceSection='verse',queuedSequenceSection=null,sequenceLoop=true,sequencePanelVisible=true,sequenceSections={verse:[],prechorus:[],chorus:[],bridge:[]},transportRunning=false,transportStep=0,transportNextTime=0,transportTimer=null,transportEvents=[],transportBar=0,drumStartQueued=false,accompanimentStopQueued=false,accompanimentStopEventScheduled=false;
+let audioCtx,masterGain,limiter,drumBus,drumCompressor,openHatVoice=null,drumEngine="acoustic",drumSamplesReady=false,drumSamplesLoading=false,drumSampleBuffers={},drumRoundRobin={},drumSamplesLoadedCount=0,drumSamplesTotalCount=0,drumSamplesFailureCount=0,instrument="piano",octave=0,sustainMode="hold",releaseMs=650,attackMs=20,chordMode="together",arpInterval=280,arpPattern="up",chordType="minor",inversion=0,bassEnabled=false,latchEnabled=false,splitEnabled=false,splitInstrument="churchOrgan",velocityEnabled=true,glissEnabled=true,metronomeOn=false,metronomeTimer=null,bpm=100,rhythmPattern="whole",chordChangeMode="nextBar",latchedRoot=null,latchedType=null,pendingRoot=null,pendingType=null,pendingButton=null,latchedButton=null,accompanimentTimer=null,accompanimentEvents=[],accompanimentHalfTimer=null,activeVoices=new Set(),pointerVoices=new Map(),pointerLastKey=new Map(),pressedKeys=new Map(),saveArmed=false,actionToken=0,alternateDirection=false,circleEnabled=false,circleRoot=null,drumMode=true,drumRunning=false,drumPattern="rock",drumManual=false,drumStep=0,drumTimer=null,drumNextTime=0,drumFillQueued=false,drumEndingQueued=false,drumQueuedAction="",drumActiveAction="",drumCompletedAction="",drumActionMuteUntil=0,sequenceEndActionInProgress="",drumLayers={kick:true,snare:true,hat:true},sequenceRecording=false,sequencePlaying=false,sequenceTimer=null,sequenceIndex=-1,sequenceHalvesRemaining=0,sequenceStartQueued=false,activeSequenceSection='verse',queuedSequenceSection=null,sequenceLoop=true,sequenceAuto=true,sequencePanelVisible=true,sequenceSections={verse:[],prechorus:[],chorus:[],bridge:[],section5:[],section6:[]},sequenceRepeats={verse:0,prechorus:0,chorus:0,bridge:0,section5:0,section6:0},currentSectionRepetition=1,sequencePendingTransition=null,transportRunning=false,transportStep=0,transportNextTime=0,transportTimer=null,transportEvents=[],transportBar=0,drumStartQueued=false,accompanimentStopQueued=false,accompanimentStopEventScheduled=false;
 const MAX_SIMULTANEOUS_TOUCHES=4;
 function ensureAudio(){if(!audioCtx){audioCtx=new(AudioContext||webkitAudioContext)({latencyHint:'interactive'});masterGain=audioCtx.createGain();limiter=audioCtx.createDynamicsCompressor();drumBus=audioCtx.createGain();drumCompressor=audioCtx.createDynamicsCompressor();drumCompressor.threshold.value=-18;drumCompressor.knee.value=18;drumCompressor.ratio.value=4;drumCompressor.attack.value=.006;drumCompressor.release.value=.16;drumBus.gain.value=Number($('drum-volume').value)/100;drumBus.connect(drumCompressor);drumCompressor.connect(masterGain);limiter.threshold.value=-10;limiter.knee.value=10;limiter.ratio.value=12;limiter.attack.value=.003;limiter.release.value=.18;masterGain.gain.value=+$('master-volume').value/100;masterGain.connect(limiter);limiter.connect(audioCtx.destination)}if(audioCtx.state==='suspended')audioCtx.resume()}
 function freq(semi,oct=0){return 261.625565*Math.pow(2,(semi+oct*12)/12)}function vol(kind){return +$(kind+'-volume').value/100}
@@ -222,8 +242,8 @@ function patternNotes(notes){if(arpPattern==='down')return [...notes].reverse();
 async function playChord(root,type="major",button=null,fromRhythm=false){ensureAudio();if(sustainMode==='next'&&!fromRhythm)releaseAll(100);const token=++actionToken,notes=chordNotes(root,type,button);button?.classList.add('playing');setTimeout(()=>button?.classList.remove('playing'),Math.max(420,arpInterval*notes.length));if(chordMode==='together'){if(instrument==='acousticGuitar')guitarStroke(root,type,'down',Math.max(420,releaseMs),button,false,1);else notes.forEach(n=>{createVoice(n,{kind:'chord',autoRelease:latchEnabled?0:Math.max(500,releaseMs)});flash(n,true);setTimeout(()=>flash(n,false),450)})}else{let bass;if(bassEnabled)bass=createVoice(root,{kind:'bass',autoRelease:latchEnabled?0:Math.max(700,releaseMs+arpInterval*notes.length)});for(const n of patternNotes(notes)){if(token!==actionToken)break;createVoice(n,{kind:'chord',autoRelease:Math.max(350,releaseMs)});flash(n,true);setTimeout(()=>flash(n,false),Math.max(180,arpInterval));await new Promise(r=>setTimeout(r,arpInterval))}if(bass&&!latchEnabled)setTimeout(()=>releaseVoice(bass),releaseMs)}setStatus(chordLabel(root,type))}
 function clearAccompanimentSchedule(){clearTimeout(accompanimentTimer);clearTimeout(accompanimentHalfTimer);accompanimentTimer=null;accompanimentHalfTimer=null;accompanimentEvents.forEach(clearTimeout);accompanimentEvents=[]}
 function clearTransportEvents(){transportEvents.forEach(clearTimeout);transportEvents=[]}
-function transportNeeded(){return drumRunning||drumStartQueued||sequencePlaying||sequenceStartQueued||latchedRoot!==null||pendingRoot!==null||accompanimentStopQueued}
-function stopMasterTransport(){transportRunning=false;clearTimeout(transportTimer);transportTimer=null;clearTransportEvents();transportStep=0;transportNextTime=0;transportBar=0;accompanimentStopEventScheduled=false}
+function transportNeeded(){return drumRunning||drumStartQueued||sequencePlaying||sequenceStartQueued||latchedRoot!==null||pendingRoot!==null||accompanimentStopQueued||!!sequencePendingTransition||drumQueuedAction!==''||drumActiveAction!==''}
+function stopMasterTransport(){transportRunning=false;clearTimeout(transportTimer);transportTimer=null;clearTransportEvents();transportStep=0;transportNextTime=0;transportBar=0;accompanimentStopEventScheduled=false;drumActiveAction='';drumQueuedAction='';drumCompletedAction='';drumActionMuteUntil=0;sequenceEndActionInProgress='';syncDrumActionButtons()}
 function maybeStopMasterTransport(){if(!transportNeeded())stopMasterTransport()}
 function ensureMasterTransport(){
  ensureAudio();
@@ -240,7 +260,9 @@ function guitarStroke(root,type,direction='down',duration=420,button=null,muted=
  const selected=direction==='up'?notes.slice(0,Math.min(3,notes.length)):notes;
  const spread=direction==='up'?14:18;
  if(muted){
-   if(typeof playDrumSound==='function')playDrumSound('hat',audioCtx?.currentTime||0,.28*accent);
+   ensureAudio();
+   const mutedTime=audioCtx ? audioCtx.currentTime : 0;
+   playDrum('hat',mutedTime,.28*accent);
    return;
  }
  selected.forEach((n,i)=>scheduleInBar(()=>{
@@ -324,23 +346,135 @@ function startAccompaniment(root,type,button){requestAccompaniment(root,type,but
 
 
 const SEQUENCE_KEY='tecladoVirtualSongSections';
-const SEQUENCE_SECTION_LABELS={verse:'Estrofe',prechorus:'Pré-refrão',chorus:'Refrão',bridge:'Ponte'};
+const SEQUENCE_SECTION_LABELS={verse:'Seq. 1',prechorus:'Seq. 2',chorus:'Seq. 3',bridge:'Seq. 4',section5:'Seq. 5',section6:'Seq. 6'};
 function currentChordSequence(){return sequenceSections[activeSequenceSection]||[]}
-function sequenceEntryDuration(){return chordChangeMode==='halfBar'?.5:1}
-function saveChordSequence(){localStorage.setItem(SEQUENCE_KEY,JSON.stringify({sections:sequenceSections,active:activeSequenceSection,loop:sequenceLoop,visible:sequencePanelVisible}))}
+function sequenceEntryDuration(){if(chordChangeMode==='halfBar')return .5;return 1}
+function isSequencePause(item){return !!(item&&item.pause)}
+function normalizeSequenceItem(item){
+ if(!item||typeof item!=='object')return null;
+ const fraction=item.fraction===.5?.5:1;
+ if(item.pause)return {pause:true,label:item.label||(fraction===.5?'Pausa ½':'Pausa'),fraction:fraction};
+ if(!Number.isFinite(+item.root)||!item.type)return null;
+ const normalized={root:+item.root,type:item.type,label:item.label||chordLabel(+item.root,item.type),fraction:fraction};
+ if(item.secondary){normalized.secondary=true;normalized.targetRoot=+item.targetRoot;normalized.targetType=item.targetType}
+ return normalized;
+}
+function saveChordSequence(){localStorage.setItem(SEQUENCE_KEY,JSON.stringify({sections:sequenceSections,active:activeSequenceSection,loop:true,auto:sequenceAuto,autoV2:true,repeats:sequenceRepeats,visible:sequencePanelVisible}))}
 function loadChordSequence(){
  try{
   const saved=JSON.parse(localStorage.getItem(SEQUENCE_KEY)||'null');
   if(saved&&saved.sections){
-   for(const key of Object.keys(sequenceSections))sequenceSections[key]=Array.isArray(saved.sections[key])?saved.sections[key].filter(x=>Number.isFinite(+x.root)&&x.type):[];
+   for(const key of Object.keys(sequenceSections))sequenceSections[key]=Array.isArray(saved.sections[key])?saved.sections[key].map(normalizeSequenceItem).filter(Boolean):[];
    if(SEQUENCE_SECTION_LABELS[saved.active])activeSequenceSection=saved.active;
-   sequenceLoop=saved.loop!==false;sequencePanelVisible=saved.visible!==false;
+   sequenceLoop=true;
+   if(saved.autoV2===true)sequenceAuto=saved.auto!==false;else sequenceAuto=true;
+   if(saved.repeats&&typeof saved.repeats==='object'){
+    Object.keys(sequenceRepeats).forEach(function(key){
+     const value=Number(saved.repeats[key]);
+     if(Number.isFinite(value))sequenceRepeats[key]=Math.max(0,Math.min(16,Math.round(value)));
+    });
+   }
+   sequencePanelVisible=saved.visible!==false;
   }else{
    const legacy=JSON.parse(localStorage.getItem('tecladoVirtualChordSequence')||'[]');
-   if(Array.isArray(legacy))sequenceSections.verse=legacy.filter(x=>Number.isFinite(+x.root)&&x.type);
+   if(Array.isArray(legacy))sequenceSections.verse=legacy.map(normalizeSequenceItem).filter(Boolean);
   }
  }catch{}
  syncSequenceSectionButtons();renderChordSequence();
+}
+const SONGS_KEY='tecladoVirtualSongs';let songs={},currentSongName=null;
+function loadSongsStore(){
+ try{
+  const raw=JSON.parse(localStorage.getItem(SONGS_KEY)||'null');
+  if(raw&&typeof raw.songs==='object'&&raw.songs)songs=raw.songs;
+  if(typeof raw?.lastSong==='string'&&songs[raw.lastSong])currentSongName=raw.lastSong;
+ }catch{}
+}
+function saveSongsStore(){try{localStorage.setItem(SONGS_KEY,JSON.stringify({songs,lastSong:currentSongName}))}catch{}}
+function snapshotCurrentSequence(){return {sections:JSON.parse(JSON.stringify(sequenceSections)),repeats:{...sequenceRepeats},auto:sequenceAuto}}
+function applySequenceState(state){
+ const keys=Object.keys(sequenceSections);
+ keys.forEach(function(key){
+  sequenceSections[key]=Array.isArray(state?.sections?.[key])?state.sections[key].map(normalizeSequenceItem).filter(Boolean):[];
+  const rep=Number(state?.repeats?.[key]);
+  sequenceRepeats[key]=Number.isFinite(rep)?Math.max(0,Math.min(16,Math.round(rep))):0;
+ });
+ if(state&&typeof state.auto==='boolean')sequenceAuto=state.auto;
+ activeSequenceSection='verse';queuedSequenceSection=null;sequenceIndex=-1;currentSectionRepetition=1;
+ document.querySelectorAll('[data-section-repeat]').forEach(function(input){
+  const key=input.dataset.sectionRepeat;if(key)input.value=String(sequenceRepeats[key]||0);
+ });
+ syncSequenceSectionButtons();renderChordSequence();saveChordSequence();
+}
+function updateSongNameDisplay(){const el=$('song-current-name');if(el)el.textContent='🎵 '+(currentSongName||'Sem título')}
+function renderSongsList(){
+ const box=$('songs-list');if(!box)return;
+ const names=Object.keys(songs).sort((a,b)=>a.localeCompare(b,'pt-BR'));
+ if(!names.length){box.innerHTML='<span class="songs-empty">Nenhuma música salva ainda.</span>';return}
+ box.innerHTML='';
+ names.forEach(function(name){
+  const row=document.createElement('div');row.className='song-item'+(name===currentSongName?' song-active':'');
+  const loadBtn=document.createElement('button');loadBtn.type='button';loadBtn.className='song-load secondary';loadBtn.textContent=name;loadBtn.title='Carregar "'+name+'"';
+  loadBtn.onclick=function(){loadSong(name)};
+  const delBtn=document.createElement('button');delBtn.type='button';delBtn.className='song-delete danger';delBtn.textContent='🗑';delBtn.title='Excluir "'+name+'"';delBtn.setAttribute('aria-label','Excluir '+name);
+  delBtn.onclick=function(){deleteSong(name)};
+  row.append(loadBtn,delBtn);box.appendChild(row);
+ });
+}
+function loadSong(name){
+ if(!songs[name])return;
+ applySequenceState(songs[name]);
+ if(Number.isFinite(+songs[name].bpm)){
+  $('bpm').value=songs[name].bpm;
+  clampFineInput($('bpm'));
+  updateRanges();
+ }
+ currentSongName=name;saveSongsStore();updateSongNameDisplay();renderSongsList();
+ setStatus('Música "'+name+'" carregada'+(Number.isFinite(+songs[name].bpm)?' a '+bpm+' BPM':''));
+ const dlg=$('songs-dialog');if(dlg?.open)dlg.close();
+}
+function deleteSong(name){
+ if(!songs[name])return;
+ if(!confirm('Excluir a música "'+name+'"? Essa ação não pode ser desfeita.'))return;
+ delete songs[name];
+ if(currentSongName===name)currentSongName=null;
+ saveSongsStore();renderSongsList();updateSongNameDisplay();
+}
+function sectionRepeatValue(section){
+ const value=Number(sequenceRepeats[section]);
+ if(!Number.isFinite(value))return 0;
+ return Math.max(0,Math.min(16,Math.round(value)));
+}
+function configuredSequenceSections(){
+ const order=['verse','prechorus','chorus','bridge','section5','section6'];
+ return order.filter(function(section){
+  return sectionRepeatValue(section)>0&&(sequenceSections[section]||[]).length>0;
+ });
+}
+function sectionRepeatLabel(section){
+ const value=sectionRepeatValue(section);
+ if(value===0)return '—';
+ return String(value);
+}
+function nextAutomaticSection(section){
+ const configured=configuredSequenceSections();
+ if(!configured.length)return '';
+ const index=configured.indexOf(section);
+ if(index<0)return configured[0];
+ return configured[(index+1)%configured.length];
+}
+function syncSequenceRepeatInputs(){
+ document.querySelectorAll('[data-section-repeat]').forEach(function(input){
+  const section=input.dataset.sectionRepeat;
+  input.value=String(sectionRepeatValue(section));
+ });
+}
+function syncSequenceAutoButton(){
+ const button=$('sequence-auto');
+ if(!button)return;
+ button.classList.toggle('active',sequenceAuto);
+ button.textContent=sequenceAuto?'Auto ✓':'Auto';
+ button.title=sequenceAuto?'Auto ligado: percorre apenas sequências com valor de 1 a 16':'Ligar execução automática';
 }
 function syncSequencePanelVisibility(){const panel=$('sequence-panel'),button=$('sequence-toggle');if(!panel||!button)return;panel.classList.toggle('sequence-hidden',!sequencePanelVisible);button.classList.toggle('sequence-toggle-active',sequencePanelVisible);button.title=sequencePanelVisible?'Ocultar barra de sequências':'Mostrar barra de sequências';}
 function syncSequenceSectionButtons(){
@@ -351,8 +485,14 @@ function syncSequenceSectionButtons(){
   b.classList.toggle('has-content',(sequenceSections[key]||[]).length>0);
   b.setAttribute('aria-label',SEQUENCE_SECTION_LABELS[key]+(sequencePlaying&&key===queuedSequenceSection?' — próxima seção':''));
  });
- const loop=$('sequence-loop');if(loop){loop.classList.toggle('active',sequenceLoop);loop.title=sequenceLoop?'Repetição contínua ligada':'Repetição contínua desligada'}
+ document.querySelectorAll('[data-section-control]').forEach(function(control){
+  control.classList.toggle('playing-repeat',sequencePlaying&&control.dataset.sectionControl===activeSequenceSection);
+ });
+ syncSequenceRepeatInputs();
+ syncSequenceAutoButton();
 }
+function syncSequenceRecordButton(){const b=$('sequence-record');if(!b)return;b.classList.toggle('sequence-recording',sequenceRecording);b.textContent=sequenceRecording?'■ Gravando':'● Gravar'}
+function clearChordLatchState(releaseTime=180){clearAccompanimentSchedule();latchedRoot=null;latchedType=null;latchedButton=null;pendingRoot=null;pendingType=null;pendingButton=null;document.querySelectorAll('.chord.latched,.chord.queued').forEach(b=>b.classList.remove('latched','queued'));if(releaseTime>0)releaseAll(releaseTime)}
 function selectSequenceSection(section){
  if(!SEQUENCE_SECTION_LABELS[section])return;
  if(sequencePlaying){
@@ -362,58 +502,189 @@ function selectSequenceSection(section){
   }
   if(!(sequenceSections[section]||[]).length){setStatus(SEQUENCE_SECTION_LABELS[section]+' está vazia');return}
   if(queuedSequenceSection===section){queuedSequenceSection=null;syncSequenceSectionButtons();setStatus('Entrada de '+SEQUENCE_SECTION_LABELS[section]+' cancelada');return}
-  queuedSequenceSection=section;syncSequenceSectionButtons();setStatus(SEQUENCE_SECTION_LABELS[section]+' será a próxima seção');return;
+  queuedSequenceSection=section;syncSequenceSectionButtons();setStatus(SEQUENCE_SECTION_LABELS[section]+' será a próxima seção e terá prioridade sobre o modo automático');return;
  }
  if(section===activeSequenceSection)return;
- if(sequenceRecording){sequenceRecording=false;$('sequence-record').classList.remove('sequence-recording');$('sequence-record').textContent='● Gravar'}
- activeSequenceSection=section;queuedSequenceSection=null;sequenceIndex=-1;saveChordSequence();syncSequenceSectionButtons();renderChordSequence();setStatus(SEQUENCE_SECTION_LABELS[section]+' selecionado');
+ if(sequenceRecording){sequenceRecording=false;syncSequenceRecordButton()}
+ activeSequenceSection=section;queuedSequenceSection=null;currentSectionRepetition=1;sequenceIndex=-1;saveChordSequence();syncSequenceSectionButtons();renderChordSequence();setStatus(SEQUENCE_SECTION_LABELS[section]+' selecionado');
 }
 function renderChordSequence(){
  const box=$('sequence-strip');if(!box)return;box.innerHTML='';const sequence=currentChordSequence();
- if(!sequence.length){box.innerHTML=`<span class="sequence-empty">Ative CH e grave ${SEQUENCE_SECTION_LABELS[activeSequenceSection]}.</span>`;syncSequenceSectionButtons();return}
- sequence.forEach((item,i)=>{const el=document.createElement('span');el.className='sequence-item '+(item.fraction===.5?'half':'full')+(sequencePlaying&&i===sequenceIndex?' current':'');el.textContent=item.label||chordLabel(+item.root,item.type);el.title=(item.fraction===.5?'Meio compasso':'Um compasso');box.appendChild(el)});syncSequenceSectionButtons();
+ if(!sequence.length){box.innerHTML=`<span class="sequence-empty">Grave os acordes de ${SEQUENCE_SECTION_LABELS[activeSequenceSection]}.</span>`;syncSequenceSectionButtons();return}
+ sequence.forEach((item,i)=>{const el=document.createElement('span');el.className='sequence-item '+(item.fraction===.5?'half':'full')+(isSequencePause(item)?' pause':'')+(sequencePlaying&&i===sequenceIndex?' current':'');el.textContent=item.label||(isSequencePause(item)?'Pausa':chordLabel(+item.root,item.type));el.title=isSequencePause(item)?(item.fraction===.5?'Pausa de meio compasso':'Pausa de um compasso'):(item.fraction===.5?'Meio compasso':'Um compasso');box.appendChild(el)});syncSequenceSectionButtons();
+}
+function addPauseToSequence(fraction){
+ if(!sequenceRecording){setStatus('Ative a gravação para inserir pausas');return false}
+ const duration=fraction===.5?.5:1;
+ const item={pause:true,label:duration===.5?'Pausa ½':'Pausa',fraction:duration};
+ currentChordSequence().push(item);saveChordSequence();renderChordSequence();setStatus((duration===.5?'Meia pausa':'Pausa')+' adicionada a '+SEQUENCE_SECTION_LABELS[activeSequenceSection]);return true;
 }
 function addChordToSequence(root,type,button){
  if(!sequenceRecording)return false;
- if(!circleEnabled||!button||!button.closest('#circle-main-wrap, #secondary-dominants-wrap')){setStatus('A gravação aceita apenas acordes exibidos pelo CH');return false}
- const item={root:+root,type,label:chordLabel(+root,type),fraction:sequenceEntryDuration()};
- if(button.dataset.secondary==='true'){item.secondary=true;item.targetRoot=+button.dataset.targetRoot;item.targetType=button.dataset.targetType;item.label=button.textContent.trim().replace(/V\/.*/,'').trim()||item.label}
- currentChordSequence().push(item);saveChordSequence();renderChordSequence();setStatus(`${item.label} adicionado a ${SEQUENCE_SECTION_LABELS[activeSequenceSection]} — ${item.fraction===.5?'meio compasso':'um compasso'}`);return true;
+ if(!button||!button.classList.contains('chord')){
+  setStatus('Toque em um botão de acorde para gravar');
+  return false;
+ }
+ const item={root:+root,type:type,label:chordLabel(+root,type),fraction:sequenceEntryDuration()};
+ if(button.dataset.secondary==='true'){
+  item.secondary=true;
+  item.targetRoot=+button.dataset.targetRoot;
+  item.targetType=button.dataset.targetType;
+  item.label=button.textContent.trim().replace(/V\/.*/,'').trim()||item.label;
+ }
+ currentChordSequence().push(item);
+ saveChordSequence();
+ renderChordSequence();
+ setStatus(`${item.label} adicionado a ${SEQUENCE_SECTION_LABELS[activeSequenceSection]} — ${item.fraction===.5?'meio compasso':'um compasso'}`);
+ return true;
 }
-function findSequenceButton(item){return [...document.querySelectorAll('.chord')].find(b=>+b.dataset.root===+item.root&&b.dataset.type===item.type&&(!item.secondary||b.dataset.secondary==='true'&&+b.dataset.targetRoot===+item.targetRoot))||null}
+function findSequenceButton(item){if(isSequencePause(item))return null;return [...document.querySelectorAll('.chord')].find(b=>+b.dataset.root===+item.root&&b.dataset.type===item.type&&(!item.secondary||b.dataset.secondary==='true'&&+b.dataset.targetRoot===+item.targetRoot))||null}
 function stopChordSequence(message='Sequência parada'){
- clearTimeout(sequenceTimer);sequenceTimer=null;sequencePlaying=false;sequenceStartQueued=false;queuedSequenceSection=null;sequenceIndex=-1;sequenceHalvesRemaining=0;clearAccompanimentSchedule();latchedRoot=null;latchedType=null;latchedButton=null;pendingRoot=null;pendingType=null;pendingButton=null;document.querySelectorAll('.chord.latched,.chord.queued').forEach(b=>b.classList.remove('latched','queued'));releaseAll(180);syncInstrumentChangeLock();renderChordSequence();maybeStopMasterTransport();if(message)setStatus(message)
+ clearTimeout(sequenceTimer);sequenceTimer=null;sequencePlaying=false;sequenceStartQueued=false;queuedSequenceSection=null;sequenceIndex=-1;sequenceHalvesRemaining=0;sequencePendingTransition=null;sequenceEndActionInProgress="";drumActionMuteUntil=0;drumFillQueued=false;drumEndingQueued=false;clearChordLatchState(180);syncInstrumentChangeLock();syncDrumActionButtons();renderChordSequence();maybeStopMasterTransport();if(message)setStatus(message)
 }
-function loadSequenceItem(index){
+function scheduleSequenceEndDrumAction(action,item,transportStartTime){
+ ensureAudio();
+
+ let fraction=1;
+ if(item&&item.fraction===.5)fraction=.5;
+
+ let patternName=action;
+ if(fraction===.5){
+  if(action==='fill')patternName='fillHalf';
+  else patternName='endingHalf';
+ }
+
+ const pattern=DRUM_ACTION_PATTERNS[patternName]||DRUM_ACTION_PATTERNS.fill;
+ const durationSeconds=(barDuration()/1000)*fraction;
+ let startTime=Number(transportStartTime);
+ if(!Number.isFinite(startTime))startTime=audioCtx.currentTime+.008;
+ const patternSteps=pattern.steps||16;
+
+ drumActionMuteUntil=startTime+durationSeconds;
+ sequenceEndActionInProgress=action;
+ drumFillQueued=false;
+ drumEndingQueued=false;
+ syncDrumActionButtons();
+
+ const scheduleHits=function(name,steps,velocity){
+  if(!steps||!steps.length)return;
+  steps.forEach(function(step){
+   const when=startTime+(step/patternSteps)*durationSeconds;
+   playDrum(name,when,velocity);
+  });
+ };
+
+ if(drumLayers.kick)scheduleHits('kick',pattern.kick,.9);
+ if(drumLayers.snare)scheduleHits('snare',pattern.snare,.86);
+ if(drumLayers.hat)scheduleHits('hat',pattern.hat,.38);
+ scheduleHits('tomLow',pattern.tomLow,.8);
+ scheduleHits('tomMid',pattern.tomMid,.78);
+ scheduleHits('tomHigh',pattern.tomHigh,.76);
+ scheduleHits('crash',pattern.crash,action==='ending'?.92:.74);
+
+ const durationLabel=fraction===.5?'meio compasso':'um compasso';
+ setStatus((action==='fill'?'Virada':'Encerramento')+' de '+durationLabel+' incorporado ao último trecho');
+}
+function loadSequenceItem(index,boundaryAudioTime){
  let sequence=currentChordSequence();
  if(index>=sequence.length){
+  if(sequenceEndActionInProgress==='ending'){
+   sequenceEndActionInProgress='';
+   drumActionMuteUntil=0;
+   stopDrums();
+   stopChordSequence('Encerramento concluído');
+   return false;
+  }
+
+  if(sequenceEndActionInProgress==='fill'){
+   sequenceEndActionInProgress='';
+   drumActionMuteUntil=0;
+   syncDrumActionButtons();
+   playDrum('crash',null,.72);
+  }
+
   if(queuedSequenceSection){
    const nextSection=queuedSequenceSection;
    queuedSequenceSection=null;
    activeSequenceSection=nextSection;
+   currentSectionRepetition=1;
    sequence=currentChordSequence();
-   if(!sequence.length){stopChordSequence(SEQUENCE_SECTION_LABELS[nextSection]+' está vazia');return false}
-   index=0;saveChordSequence();syncSequenceSectionButtons();setStatus('Entrou '+SEQUENCE_SECTION_LABELS[nextSection]);
-  }else if(sequenceLoop){
+   if(!sequence.length){
+    stopChordSequence(SEQUENCE_SECTION_LABELS[nextSection]+' está vazia');
+    return false;
+   }
    index=0;
+   saveChordSequence();
+   syncSequenceSectionButtons();
+   setStatus('Entrou '+SEQUENCE_SECTION_LABELS[nextSection]+' por escolha manual');
+  }else if(sequenceAuto){
+   const targetRepeats=sectionRepeatValue(activeSequenceSection);
+   if(targetRepeats>0&&currentSectionRepetition<targetRepeats){
+    currentSectionRepetition++;
+    index=0;
+    setStatus(SEQUENCE_SECTION_LABELS[activeSequenceSection]+' · repetição '+currentSectionRepetition+' de '+targetRepeats);
+   }else{
+    const nextSection=nextAutomaticSection(activeSequenceSection);
+    if(!nextSection){
+     stopChordSequence('Nenhuma sequência com repetição de 1 a 16 está configurada no modo Auto');
+     return false;
+    }
+    activeSequenceSection=nextSection;
+    currentSectionRepetition=1;
+    sequence=currentChordSequence();
+    index=0;
+    saveChordSequence();
+    syncSequenceSectionButtons();
+    setStatus('Entrou '+SEQUENCE_SECTION_LABELS[nextSection]+' · repetição 1 de '+sectionRepeatValue(nextSection));
+   }
   }else{
-   stopChordSequence(SEQUENCE_SECTION_LABELS[activeSequenceSection]+' concluído');return false;
+   currentSectionRepetition++;
+   index=0;
+   setStatus(SEQUENCE_SECTION_LABELS[activeSequenceSection]+' · repetição contínua ('+currentSectionRepetition+')');
   }
  }
- sequenceIndex=index;const item=sequence[sequenceIndex],button=findSequenceButton(item);sequenceHalvesRemaining=item.fraction===.5?1:2;setLatchedChord(+item.root,item.type,button);renderChordSequence();return true;
+
+ sequenceIndex=index;
+ const item=sequence[sequenceIndex];
+ sequenceHalvesRemaining=item.fraction===.5?1:2;
+ const isLastItem=sequenceIndex===sequence.length-1;
+
+ if(isLastItem&&!sequenceEndActionInProgress){
+  if(drumEndingQueued)scheduleSequenceEndDrumAction('ending',item,boundaryAudioTime);
+  else if(drumFillQueued)scheduleSequenceEndDrumAction('fill',item,boundaryAudioTime);
+ }
+
+ if(isSequencePause(item)){
+  clearChordLatchState(140);
+  renderChordSequence();
+  return true;
+ }
+
+ const button=findSequenceButton(item);
+ setLatchedChord(+item.root,item.type,button);
+ renderChordSequence();
+ return true;
 }
-function advanceSequenceBoundary(isBarStart){
+function advanceSequenceBoundary(isBarStart,boundaryAudioTime){
  if(!sequencePlaying)return;
- if(sequenceStartQueued){if(!isBarStart)return;sequenceStartQueued=false;sequenceIndex=-1;sequenceHalvesRemaining=0;loadSequenceItem(0);setStatus('Reproduzindo '+SEQUENCE_SECTION_LABELS[activeSequenceSection]+(sequenceLoop?' em repetição contínua':''));return}
- if(sequenceIndex<0){if(isBarStart)loadSequenceItem(0);return}
+ if(sequenceStartQueued){if(!isBarStart)return;sequenceStartQueued=false;sequenceIndex=-1;sequenceHalvesRemaining=0;loadSequenceItem(0,boundaryAudioTime);setStatus('Reproduzindo '+SEQUENCE_SECTION_LABELS[activeSequenceSection]+(sequenceLoop?' em repetição contínua':''));return}
+ if(sequenceIndex<0){if(isBarStart)loadSequenceItem(0,boundaryAudioTime);return}
  sequenceHalvesRemaining--;
- if(sequenceHalvesRemaining<=0)loadSequenceItem(sequenceIndex+1);
+ if(sequenceHalvesRemaining<=0)loadSequenceItem(sequenceIndex+1,boundaryAudioTime);
 }
 function playChordSequence(){
+ if(sequenceAuto&&sectionRepeatValue(activeSequenceSection)===0){
+  const configured=configuredSequenceSections();
+  if(!configured.length){setStatus('No modo Auto, configure pelo menos uma sequência com repetição de 1 a 16');return}
+  activeSequenceSection=configured[0];
+  currentSectionRepetition=1;
+  syncSequenceSectionButtons();
+  renderChordSequence();
+ }
  const sequence=currentChordSequence();if(!sequence.length){setStatus(SEQUENCE_SECTION_LABELS[activeSequenceSection]+' está vazia');return}
- if(sequenceRecording){sequenceRecording=false;$('sequence-record').classList.remove('sequence-recording');$('sequence-record').textContent='● Gravar'}
- clearTimeout(sequenceTimer);sequenceTimer=null;clearAccompanimentSchedule();queuedSequenceSection=null;sequencePlaying=true;sequenceStartQueued=true;sequenceIndex=-1;sequenceHalvesRemaining=0;syncInstrumentChangeLock();ensureMasterTransport();renderChordSequence();
- setStatus((drumRunning||transportRunning)?SEQUENCE_SECTION_LABELS[activeSequenceSection]+' aguardando o próximo compasso':'Preparando '+SEQUENCE_SECTION_LABELS[activeSequenceSection]);
+ if(sequenceRecording){sequenceRecording=false;syncSequenceRecordButton()}
+ clearTimeout(sequenceTimer);sequenceTimer=null;clearAccompanimentSchedule();queuedSequenceSection=null;currentSectionRepetition=1;sequencePendingTransition=null;sequenceEndActionInProgress="";drumActionMuteUntil=0;sequencePlaying=true;sequenceStartQueued=true;sequenceIndex=-1;sequenceHalvesRemaining=0;syncDrumActionButtons();syncInstrumentChangeLock();ensureMasterTransport();renderChordSequence();
+ setStatus((drumRunning||transportRunning)?SEQUENCE_SECTION_LABELS[activeSequenceSection]+' aguardando o próximo compasso':'Preparando '+SEQUENCE_SECTION_LABELS[activeSequenceSection]+(sequenceAuto?' em modo automático':''));
 }
 function handleChordButton(root,type,button){
  addChordToSequence(root,type,button);
@@ -610,47 +881,86 @@ function playDrum(name,when=null,velocity=1){
 }
 
 const DRUM_PATTERNS={
- rock:{kick:[0,8,10,14],snare:[4,12],hat:[0,2,4,6,8,10,12,14]},
- forro:{kick:[0,3,6,8,11,14],snare:[4,12],hat:[0,2,4,6,8,10,12,14]},
- bolero:{kick:[0,8],snare:[4,10,12],hat:[0,2,4,6,8,10,12,14]},
- sertanejo:{kick:[0,6,8,14],snare:[4,12],hat:[0,2,4,6,8,10,12,14]}
+ rock:{kick:[0,8,10,14],snare:[4,12],hat:[0,2,4,6,8,10,12,14],velocity:{kick:1,snare:1,hat:1}},
+ forro:{kick:[0,3,6,8,11,14],snare:[4,12],hat:[0,2,4,6,8,10,12,14],velocity:{kick:.96,snare:.94,hat:.9}},
+ bolero:{kick:[0,8],snare:[4,10,12],hat:[0,2,4,6,8,10,12,14],velocity:{kick:.82,snare:.78,hat:.72}},
+ sertanejo:{kick:[0,6,8,14],snare:[4,12],hat:[0,2,4,6,8,10,12],openhat:[14],velocity:{kick:.92,snare:.88,hat:.76,openhat:.56}},
+ balada:{kick:[0,8],snare:[4,12],hat:[0,2,4,6,8,10,12,14],velocity:{kick:.72,snare:.6,hat:.58}},
+ suave:{kick:[0],snare:[8],hat:[0,4,8,12],velocity:{kick:.58,snare:.42,hat:.42}},
+ bossa:{kick:[0,6,10],snare:[3,7,11,15],ride:[0,2,4,6,8,10,12,14],velocity:{kick:.58,snare:.34,ride:.38}}
 };
-function scheduleDrumStep(step,time){
- const pattern=DRUM_PATTERNS[drumPattern]||DRUM_PATTERNS.rock;
+const DRUM_ACTION_PATTERNS={
+ fill:{steps:16,kick:[0,6,10],snare:[4],hat:[0,2,4,6],tomLow:[8,12],tomMid:[10,13],tomHigh:[11,14],crash:[15]},
+ ending:{steps:16,kick:[0,4,8,12],snare:[4,10,14],hat:[0,2,4,6,8,10],tomLow:[11,13],tomMid:[12],tomHigh:[14],crash:[15]},
+ fillHalf:{steps:8,kick:[0],snare:[2,7],hat:[0,2],tomLow:[3],tomMid:[4,5],tomHigh:[6],crash:[]},
+ endingHalf:{steps:8,kick:[0,4],snare:[2,6],hat:[0,2],tomLow:[3],tomMid:[4,5],tomHigh:[6],crash:[7]}
+};
+function syncDrumActionButtons(){
+ const fill=$('drum-fill'),ending=$('drum-ending');
+ if(fill){fill.classList.toggle('active',drumFillQueued||drumQueuedAction==='fill'||drumActiveAction==='fill')}
+ if(ending){ending.classList.toggle('active',drumEndingQueued||drumQueuedAction==='ending'||drumActiveAction==='ending')}
+}
+function requestDrumAction(action){
+ if(action!=='fill'&&action!=='ending')return;
+ const hasBattery=drumRunning||drumStartQueued;
+ const hasSequence=sequencePlaying;
+ if(!hasBattery&&!hasSequence){setStatus('Inicie a bateria ou uma sequência antes de usar virada ou encerramento');return}
+ drumFillQueued=action==='fill';
+ drumEndingQueued=action==='ending';
+ if(hasSequence){
+  syncDrumActionButtons();
+  setStatus((action==='fill'?'Virada':'Encerramento')+' será executado ao final da seção atual');
+  return;
+ }
+ if(!hasBattery){setStatus('A virada e o encerramento dependem da bateria ativa');return}
+ drumQueuedAction=action;
+ drumFillQueued=false;
+ drumEndingQueued=false;
+ syncDrumActionButtons();
+ ensureMasterTransport();
+ setStatus((action==='fill'?'Virada':'Encerramento')+' programado para o próximo compasso');
+}
+function scheduleDrumStep(step,time,mode=''){
+ const isAction=mode==='fill'||mode==='ending';
+ const pattern=isAction?(DRUM_ACTION_PATTERNS[mode]||DRUM_ACTION_PATTERNS.fill):(DRUM_PATTERNS[drumPattern]||DRUM_PATTERNS.rock);
  let strong=1;
- if(step===0){
-  strong=1.08;
- }else if(step===8){
-  strong=1.02;
+ if(step===0)strong=1.08;else if(step===8)strong=1.02;
+ const velocities=pattern.velocity||{kick:1,snare:1,hat:1,openhat:1,ride:1};
+ if(drumLayers.kick&&pattern.kick&&pattern.kick.includes(step)){
+  let kickVelocity=strong*velocities.kick;
+  if(isAction)kickVelocity=.95;
+  playDrum('kick',time,kickVelocity);
  }
-
- if(drumLayers.kick&&pattern.kick.includes(step)){
-  playDrum('kick',time,strong);
- }
-
- if(drumLayers.snare&&pattern.snare.includes(step)){
-  let snareVelocity=.8;
-  if(step===4||step===12){
-   snareVelocity=1.04;
-  }
+ if(drumLayers.snare&&pattern.snare&&pattern.snare.includes(step)){
+  let snareVelocity=.8*velocities.snare;
+  if(isAction)snareVelocity=step>=10?1:.86;
+  else if(step===4||step===12)snareVelocity=1.04*velocities.snare;
   playDrum('snare',time,snareVelocity);
  }
-
- if(drumLayers.hat&&pattern.hat.includes(step)){
+ if(drumLayers.hat&&pattern.hat&&pattern.hat.includes(step)){
   let hatTime=time;
-  if(step!==0){
-   hatTime=time+(Math.random()*.0025);
-  }
-
-  let hatVelocity=.48;
-  if(step%4===0){
-   hatVelocity=.58;
-  }
-
+  if(step!==0)hatTime=time+(Math.random()*.0025);
+  let hatVelocity=.48*velocities.hat;
+  if(step%4===0)hatVelocity=.58*velocities.hat;
+  if(isAction)hatVelocity=.42;
   playDrum('hat',hatTime,hatVelocity);
  }
+ if(!isAction&&drumLayers.hat&&pattern.openhat&&pattern.openhat.includes(step)){
+  let openHatVelocity=.48*velocities.openhat;
+  playDrum('openhat',time,openHatVelocity);
+ }
+ if(!isAction&&drumLayers.hat&&pattern.ride&&pattern.ride.includes(step)){
+  let rideVelocity=.5*velocities.ride;
+  if(step%4===0)rideVelocity=.58*velocities.ride;
+  playDrum('ride',time,rideVelocity);
+ }
+ if(isAction){
+  if(pattern.tomLow&&pattern.tomLow.includes(step))playDrum('tomLow',time,0.82);
+  if(pattern.tomMid&&pattern.tomMid.includes(step))playDrum('tomMid',time,0.80);
+  if(pattern.tomHigh&&pattern.tomHigh.includes(step))playDrum('tomHigh',time,0.78);
+  if(pattern.crash&&pattern.crash.includes(step))playDrum('crash',time,mode==='ending'?1:.82);
+ }
 }
-
 function syncAccompanimentStopButton(){
  const button=$('stop-accompaniments');
  if(!button)return;
@@ -676,7 +986,6 @@ function hasRunningAccompaniment(){
 function finishAccompanimentsAtBarEnd(){
  accompanimentStopQueued=false;
  accompanimentStopEventScheduled=false;
-
  clearTimeout(sequenceTimer);
  sequenceTimer=null;
  sequencePlaying=false;
@@ -684,32 +993,22 @@ function finishAccompanimentsAtBarEnd(){
  queuedSequenceSection=null;
  sequenceIndex=-1;
  sequenceHalvesRemaining=0;
-
- clearAccompanimentSchedule();
- latchedRoot=null;
- latchedType=null;
- latchedButton=null;
- pendingRoot=null;
- pendingType=null;
- pendingButton=null;
- document.querySelectorAll('.chord.latched,.chord.queued').forEach(function(button){
-  button.classList.remove('latched','queued');
- });
-
+ sequencePendingTransition=null;
+ clearChordLatchState(180);
  drumRunning=false;
  drumStartQueued=false;
  drumFillQueued=false;
  drumEndingQueued=false;
- document.querySelectorAll('.drum-pattern').forEach(function(button){
-  button.classList.remove('active');
- });
+ drumQueuedAction='';
+ drumActiveAction='';
+ drumCompletedAction='';
+ document.querySelectorAll('.drum-pattern').forEach(function(button){button.classList.remove('active')});
  const drumStopButton=$('drum-stop');
  if(drumStopButton)drumStopButton.classList.remove('active');
  const drumStatus=$('drum-status');
  if(drumStatus)drumStatus.textContent='Bateria parada no fim do compasso.';
-
- releaseAll(180);
  syncInstrumentChangeLock();
+ syncDrumActionButtons();
  renderChordSequence();
  syncAccompanimentStopButton();
  stopMasterTransport();
@@ -724,27 +1023,31 @@ function requestAccompanimentStop(){
   ensureMasterTransport();
   return;
  }
-
  if(!hasRunningAccompaniment()){
   setStatus('Nenhum acompanhamento está em execução');
   return;
  }
-
  accompanimentStopQueued=true;
  accompanimentStopEventScheduled=false;
  syncAccompanimentStopButton();
  setStatus('Acompanhamentos serão encerrados no fim deste compasso');
  ensureMasterTransport();
 }
-
-function handleTransportBoundary(step){
+function handleTransportBoundary(step,boundaryAudioTime){
  const isBarStart=step===0,isHalf=step===8;
  if(!isBarStart&&!isHalf)return;
  if(isBarStart){
    transportBar++;
-   if(drumStartQueued){drumStartQueued=false;drumRunning=true;$('drum-stop')?.classList.add('active');$('drum-status').textContent=`${drumPattern.toUpperCase()} · ${bpm} BPM`}
+   if(drumStartQueued){drumStartQueued=false;drumRunning=true;if($('drum-stop'))$('drum-stop').classList.add('active');$('drum-status').textContent=`${drumPattern.toUpperCase()} · ${bpm} BPM`}
+   if(drumCompletedAction){
+    const completed=drumCompletedAction;
+    drumCompletedAction='';
+    syncDrumActionButtons();
+    if(completed==='ending'){stopDrums();setStatus('Encerramento concluído');return}
+    setStatus('Virada concluída');
+   }
  }
- if(sequencePlaying)advanceSequenceBoundary(isBarStart);
+ if(sequencePlaying)advanceSequenceBoundary(isBarStart,boundaryAudioTime);
  if(!sequencePlaying){
    if(isBarStart&&chordChangeMode==='nextBar')applyPendingChord();
    if(isHalf&&chordChangeMode==='halfBar'){clearAccompanimentSchedule();applyPendingChord()}
@@ -768,7 +1071,6 @@ function transportScheduler(){
    const step=transportStep;
    const when=transportNextTime;
    const stepDur=(barDuration()/1000)/16;
-
    if(step===0&&accompanimentStopQueued){
     const delay=Math.max(0,(when-audioCtx.currentTime)*1000);
     const stopEvent=setTimeout(finishAccompanimentsAtBarEnd,delay);
@@ -776,18 +1078,16 @@ function transportScheduler(){
     accompanimentStopEventScheduled=true;
     return;
    }
-
    const startsDrums=step===0&&drumStartQueued;
-   if(drumRunning||startsDrums)scheduleDrumStep(step,when);
-
+   let scheduledAction=drumActiveAction;
+   if(step===0&&drumQueuedAction&&!scheduledAction){scheduledAction=drumQueuedAction;drumActiveAction=drumQueuedAction;drumQueuedAction='';syncDrumActionButtons()}
+   if((drumRunning||startsDrums)&&when>=drumActionMuteUntil){scheduleDrumStep(step,when,scheduledAction)}
+   if(scheduledAction&&step===15){drumCompletedAction=scheduledAction;drumActiveAction=''}
    if(step===0||step===8){
     const delay=Math.max(0,(when-audioCtx.currentTime)*1000);
-    const boundaryEvent=setTimeout(function(){
-     handleTransportBoundary(step);
-    },delay);
+    const boundaryEvent=setTimeout(function(){handleTransportBoundary(step,when)},delay);
     transportEvents.push(boundaryEvent);
    }
-
    transportNextTime+=stepDur;
    transportStep=(transportStep+1)%16;
  }
@@ -795,11 +1095,9 @@ function transportScheduler(){
 }
 function drumScheduler(){ensureMasterTransport()}
 function startDrums(pattern=drumPattern){
- ensureAudio();drumPattern=pattern;document.querySelectorAll('.drum-pattern').forEach(b=>b.classList.toggle('active',b.dataset.pattern===pattern));
- if(transportRunning&&(sequencePlaying||latchedRoot!==null||transportStep!==0)){drumStartQueued=true;$('drum-status').textContent=`${pattern.toUpperCase()} aguardando o próximo compasso`;ensureMasterTransport();return}
- drumStartQueued=true;ensureMasterTransport();$('drum-status').textContent=`${pattern.toUpperCase()} preparando entrada`;
+ ensureAudio();drumPattern=pattern;document.querySelectorAll('.drum-pattern').forEach(b=>b.classList.toggle('active',b.dataset.pattern===pattern));$('drum-status').textContent=`${pattern.toUpperCase()} · aguardando`;drumRunning=false;drumStartQueued=true;drumFillQueued=false;drumEndingQueued=false;drumQueuedAction='';drumActiveAction='';drumCompletedAction='';drumActionMuteUntil=0;sequenceEndActionInProgress='';syncDrumActionButtons();ensureMasterTransport();
 }
-function stopDrums(){drumRunning=false;drumStartQueued=false;drumFillQueued=false;drumEndingQueued=false;document.querySelectorAll('.drum-pattern').forEach(b=>b.classList.remove('active'));$('drum-stop')?.classList.remove('active');if($('drum-status'))$('drum-status').textContent='Bateria parada.';maybeStopMasterTransport()}
+function stopDrums(){drumRunning=false;drumStartQueued=false;drumFillQueued=false;drumEndingQueued=false;drumQueuedAction='';drumActiveAction='';drumCompletedAction='';drumActionMuteUntil=0;sequenceEndActionInProgress='';document.querySelectorAll('.drum-pattern').forEach(b=>b.classList.remove('active'));if($('drum-stop'))$('drum-stop').classList.remove('active');if($('drum-status'))$('drum-status').textContent='Bateria parada.';syncDrumActionButtons();maybeStopMasterTransport()}
 function setDrumMode(active){
  drumMode=active;$('drum-toggle').classList.toggle('drum-mode-active',active);$('drum-panel').classList.toggle('visible',active);
  $('drum-toggle').textContent='🥁';
@@ -821,12 +1119,18 @@ function setManualDrumMode(active){
 }
 function bindDrums(){
  $('drum-toggle').onclick=()=>setDrumMode(!drumMode);
- document.querySelectorAll('[data-drum]').forEach(b=>b.onclick=()=>playDrum(b.dataset.drum));
+ document.querySelectorAll('.manual-drum-pad').forEach(function(button){
+  button.addEventListener('pointerdown',function(event){event.preventDefault();playDrum(button.dataset.drum)},{passive:false});
+  button.addEventListener('click',function(event){event.preventDefault()});
+ });
  document.querySelectorAll('[data-layer]').forEach(b=>b.onclick=()=>{const name=b.dataset.layer;drumLayers[name]=!drumLayers[name];b.classList.toggle('layer-on',drumLayers[name]);$('drum-status').textContent=`${name==='kick'?'Bumbo':name==='snare'?'Caixa':'Chimbal'} programado ${drumLayers[name]?'ligado':'silenciado'}`});
  document.querySelectorAll('.drum-pattern').forEach(b=>b.onclick=()=>{setManualDrumMode(false);startDrums(b.dataset.pattern)});
+ $('drum-fill').onclick=()=>requestDrumAction('fill');
+ $('drum-ending').onclick=()=>requestDrumAction('ending');
  $('drum-stop').onclick=stopDrums;
  $('drum-manual').onclick=()=>setManualDrumMode(!drumManual);
  $('drum-engine').onchange=e=>{drumEngine=e.target.value;localStorage.setItem('tecladoVirtualDrumEngine',drumEngine);refreshDrumEngineStatus();if(drumEngine==='acoustic')requestAcousticDrums();};
+ syncDrumActionButtons();
 }
 
 function renderKeyboard(){for(let c=0;c<12;c++){const sc=document.createElement('div');sc.className='key-cell sharp-cell';if(SHARP[c]!=null)sc.appendChild(makeKey(SHARP[c],SKEY[c],true));$('sharp-row').appendChild(sc);const nc=document.createElement('div');nc.className='key-cell';nc.appendChild(makeKey(NAT[c],NKEY[c],false));$('natural-row').appendChild(nc)}}
@@ -999,14 +1303,41 @@ $('change-immediate').onclick=()=>selectChordChangeMode('immediate');$('change-h
 $('bass-toggle').onclick=()=>bassEnabled=toggle('bass-toggle',bassEnabled,'Baixo ligado','Baixo');$('latch-toggle').onclick=()=>{latchEnabled=toggle('latch-toggle',latchEnabled,'Contínuo ligado','Contínuo');if(!latchEnabled)stopAccompaniment()};$('split-toggle').onclick=()=>splitEnabled=toggle('split-toggle',splitEnabled,'Ativada','Desativada');$('velocity-toggle').onclick=()=>velocityEnabled=toggle('velocity-toggle',velocityEnabled,'Sensível','Uniforme');$('gliss-toggle').onclick=()=>glissEnabled=toggle('gliss-toggle',glissEnabled,'Glissando','Sem glissando');
 $('split-instrument').onchange=e=>splitInstrument=e.target.value;$('arpeggio-pattern').onchange=e=>arpPattern=e.target.value;$('inversion').onchange=e=>inversion=+e.target.value;$('rhythm-pattern').onchange=e=>{rhythmPattern=e.target.value;if(latchedRoot!==null){const button=[...document.querySelectorAll('.chord')].find(b=>b.classList.contains('latched'));beginAccompaniment(latchedRoot,latchedType,button)}};
 function metroTick(){ensureAudio();const o=osc('square',880),g=audioCtx.createGain(),now=audioCtx.currentTime;o.connect(g);g.connect(masterGain);g.gain.setValueAtTime(.1,now);g.gain.exponentialRampToValueAtTime(.0001,now+.06);o.start(now);o.stop(now+.07)}
-$('metronome-toggle').onclick=()=>{metronomeOn=!metronomeOn;const b=$('metronome-toggle');b.classList.toggle('active',metronomeOn);b.textContent=metronomeOn?'■ Parar':'▶ Iniciar';b.title=metronomeOn?'Parar metrônomo':'Iniciar metrônomo';b.setAttribute('aria-label',b.title);clearInterval(metronomeTimer);if(metronomeOn){metroTick();metronomeTimer=setInterval(metroTick,60000/bpm)}};
+function scheduleMetroTick(){metroTick();metronomeTimer=setTimeout(scheduleMetroTick,60000/bpm)}
+$('metronome-toggle').onclick=()=>{metronomeOn=!metronomeOn;const b=$('metronome-toggle');b.classList.toggle('active',metronomeOn);b.textContent=metronomeOn?'■ Parar':'▶ Iniciar';b.title=metronomeOn?'Parar metrônomo':'Iniciar metrônomo';b.setAttribute('aria-label',b.title);clearTimeout(metronomeTimer);if(metronomeOn)scheduleMetroTick()};
 
-document.querySelectorAll('[data-sequence-section]').forEach(button=>button.onclick=()=>selectSequenceSection(button.dataset.sequenceSection));
-$('sequence-record').onclick=()=>{if(sequencePlaying)stopChordSequence('Sequência parada para iniciar a gravação');sequenceRecording=!sequenceRecording;$('sequence-record').classList.toggle('sequence-recording',sequenceRecording);$('sequence-record').textContent=sequenceRecording?'■ Gravando':'● Gravar';setStatus(sequenceRecording?(circleEnabled?'Gravando '+SEQUENCE_SECTION_LABELS[activeSequenceSection]+': toque nos acordes do CH':'Ative o CH para gravar acordes'):'Gravação encerrada')};
-$('sequence-play').onclick=playChordSequence;
-$('sequence-loop').onclick=()=>{sequenceLoop=!sequenceLoop;saveChordSequence();syncSequenceSectionButtons();setStatus(sequenceLoop?'Repetição contínua ligada':'Repetição contínua desligada')};
-$('sequence-stop').onclick=()=>stopChordSequence();
-$('sequence-clear').onclick=()=>{stopChordSequence('');sequenceSections[activeSequenceSection]=[];saveChordSequence();renderChordSequence();setStatus(SEQUENCE_SECTION_LABELS[activeSequenceSection]+' apagado')};
+document.querySelectorAll('[data-sequence-section]').forEach(function(button){
+ button.onclick=function(){selectSequenceSection(button.dataset.sequenceSection)};
+});
+document.querySelectorAll('[data-section-repeat]').forEach(function(input){
+ input.onchange=function(){
+  const section=input.dataset.sectionRepeat;
+  let value=Number(input.value);
+  if(!Number.isFinite(value))value=0;
+  value=Math.max(0,Math.min(16,Math.round(value)));
+  sequenceRepeats[section]=value;
+  input.value=String(value);
+  saveChordSequence();
+  syncSequenceSectionButtons();
+  setStatus(SEQUENCE_SECTION_LABELS[section]+(value===0?' repetirá indefinidamente':' será repetido '+value+(value===1?' vez':' vezes')+' antes de avançar'));
+ };
+});
+$('sequence-record').onclick=()=>{if(sequencePlaying)stopChordSequence('Sequência parada para iniciar a gravação');sequenceRecording=!sequenceRecording;syncSequenceRecordButton();syncSequenceRepeatInputs();syncSequenceAutoButton();setStatus(sequenceRecording?'Gravando '+SEQUENCE_SECTION_LABELS[activeSequenceSection]+': toque em qualquer acorde e use as pausas quando quiser':'Gravação encerrada')};
+$('sequence-rest-full').onclick=()=>addPauseToSequence(1);$('sequence-rest-half').onclick=()=>addPauseToSequence(.5);$('sequence-play').onclick=playChordSequence;
+$('sequence-auto').onclick=function(){
+ sequenceAuto=!sequenceAuto;
+ currentSectionRepetition=1;
+ saveChordSequence();
+ syncSequenceSectionButtons();
+ if(sequenceAuto){
+  const configured=configuredSequenceSections();
+  if(configured.length)setStatus('Música automática ligada: '+configured.map(function(section){return SEQUENCE_SECTION_LABELS[section]+' ×'+sectionRepeatLabel(section)}).join(' → '));
+  else setStatus('Música automática ligada, mas nenhuma seção válida está configurada');
+ }else{
+  setStatus('Música automática desligada');
+ }
+};
+$('sequence-clear').onclick=()=>{const section=currentChordSequence();if(!section.length){setStatus(SEQUENCE_SECTION_LABELS[activeSequenceSection]+' já está vazia');return}stopChordSequence('');const removed=section.pop();saveChordSequence();renderChordSequence();setStatus((removed&&removed.label?removed.label:'Último item')+' removido de '+SEQUENCE_SECTION_LABELS[activeSequenceSection])};
 $('sequence-toggle').onclick=()=>{sequencePanelVisible=!sequencePanelVisible;saveChordSequence();syncSequencePanelVisibility();setStatus(sequencePanelVisible?'Barra de sequências exibida':'Barra de sequências ocultada')};
 $('advanced-toggle').onclick=()=>{$('advanced').classList.toggle('open');$('advanced-toggle').classList.toggle('active')};$('fullscreen').onclick=()=>{if(!document.fullscreenElement)document.documentElement.requestFullscreen?.();else document.exitFullscreen?.()};$('stop-accompaniments').onclick=requestAccompanimentStop;$('stop-all').onclick=()=>{accompanimentStopQueued=false;accompanimentStopEventScheduled=false;syncAccompanimentStopButton();clearTimeout(sequenceTimer);sequencePlaying=false;sequenceStartQueued=false;queuedSequenceSection=null;sequenceIndex=-1;sequenceHalvesRemaining=0;stopAccompaniment();stopDrums();stopMasterTransport();releaseAll();renderChordSequence();setStatus('Todas as notas foram silenciadas')};
 $('circle-toggle').onclick=()=>{if(circleEnabled){circleEnabled=false;circleRoot=null;$('circle-toggle').classList.remove('circle-active');$('circle-toggle').textContent='CH';applyCircleFilter();setStatus('Filtro do círculo harmônico desligado')}else openCircleDialog()};$('circle-close').onclick=()=>$('circle-dialog').close();
@@ -1036,6 +1367,24 @@ $('save-settings').onclick=()=>setSaveMode(!saveArmed);
 document.querySelectorAll('.memory-button').forEach(button=>button.onclick=()=>{const n=button.dataset.memory;if(saveArmed){localStorage.setItem(memoryKey(n),JSON.stringify(settings()));setSaveMode(false);refreshMemoryButtons();setStatus(`Ajustes personalizados salvos na memória ${n}`);return}const raw=localStorage.getItem(memoryKey(n));if(raw){try{applySettings(JSON.parse(raw));setStatus(`Ajustes personalizados recuperados da memória ${n}`)}catch{setStatus(`Não foi possível recuperar a memória ${n}`)}}else{const preset=DEFAULT_PRESETS[n];applySettings(structuredClone(preset.settings));setStatus(`Memória ${n}: ${preset.name}`)}});
 refreshMemoryButtons();
 document.addEventListener('keydown',e=>{if(['INPUT','SELECT','BUTTON'].includes(e.target.tagName))return;const k=e.key.toLowerCase();if(pressedKeys.has(k)||!KEYMAP.has(k))return;noteDown(KEYMAP.get(k),k,1,'keyboard')});document.addEventListener('keyup',e=>{const k=e.key.toLowerCase();if(KEYMAP.has(k))noteUp(KEYMAP.get(k),k,'keyboard')});window.addEventListener('blur',()=>releaseAll());document.addEventListener('contextmenu',e=>{if(e.target.closest('.key,.chord'))e.preventDefault()});
-drumEngine=localStorage.getItem('tecladoVirtualDrumEngine')||'acoustic';renderKeyboard();renderChords();bindDrums();syncAccompanimentStopButton();syncSettingsUI();syncInstrumentChangeLock();refreshMemoryButtons();loadChordSequence();syncSequencePanelVisibility();if(screen.orientation?.lock)screen.orientation.lock('landscape').catch(()=>{});
+drumEngine=localStorage.getItem('tecladoVirtualDrumEngine')||'acoustic';renderKeyboard();renderChords();bindDrums();$('drum-toggle').classList.add('drum-mode-active');$('drum-toggle').setAttribute('aria-pressed','true');syncAccompanimentStopButton();syncSequenceRecordButton();syncSettingsUI();syncInstrumentChangeLock();refreshMemoryButtons();loadChordSequence();syncSequencePanelVisibility();loadSongsStore();updateSongNameDisplay();if(screen.orientation?.lock)screen.orientation.lock('landscape').catch(()=>{});
+$('songs-open').onclick=()=>{renderSongsList();$('song-name-input').value=currentSongName||'';$('song-bpm-input').value=bpm;$('songs-dialog').showModal()};
+$('songs-close').onclick=()=>$('songs-dialog').close();
+$('song-save').onclick=()=>{
+ const input=$('song-name-input'),name=(input.value||'').trim();
+ if(!name){setStatus('Digite um nome para a música');return}
+ const overwrite=!!songs[name]&&name!==currentSongName;
+ if(overwrite&&!confirm('Já existe uma música chamada "'+name+'". Substituir?'))return;
+ const songBpm=clampFineInput($('song-bpm-input'));
+ songs[name]={...snapshotCurrentSequence(),bpm:songBpm};currentSongName=name;saveSongsStore();renderSongsList();updateSongNameDisplay();
+ setStatus('Música "'+name+'" salva a '+songBpm+' BPM');
+};
+$('song-new').onclick=()=>{
+ if(!confirm('Começar uma música em branco? As Seq. 1 a 6 na tela serão limpas (a música atual, se já tiver nome salvo, continua guardada).'))return;
+ applySequenceState({sections:{verse:[],prechorus:[],chorus:[],bridge:[],section5:[],section6:[]},repeats:{verse:0,prechorus:0,chorus:0,bridge:0,section5:0,section6:0}});
+ currentSongName=null;saveSongsStore();updateSongNameDisplay();
+ const input=$('song-name-input');if(input)input.value='';
+ setStatus('Nova música em branco pronta para gravar');
+};
 </script>
 </body></html>
